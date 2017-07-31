@@ -179,3 +179,69 @@ sizeof(Elemtype));
 	++L->length;
 	return OK;
 }
+Status DeleteElem(SqList *L, int i, Elemtype *e)
+{
+	if(i < 1 || i > L->length)
+	{
+		return ERROR;
+	}
+	Elemtype * p = &L->elem[i - ];
+	*e = *p;
+	for (;p<&L->elem[L->length];p++)
+	{
+	*(p) = *(p+1);
+	}
+	--L->length;
+	return OK;
+}
+void visit(Elemtype e)
+{
+	printf("%d", e);
+}
+
+Status TraverseList(const SqList L,void (*visit)(Elemtype))
+{
+	int i;
+	for(i = 0;i < L.length;i++)
+	{
+		visit(L.elem[i]);
+	}
+	return OK;
+}
+int main()
+{
+	sqList L;
+	if (InitList(&L))
+	{
+		Elemtype e;
+		printf("init_success\n");
+		int i;
+		for ( i = 0; i < 10;i++)
+		{
+			InsertElem(&L, i +1,i);
+		}
+		printf("length is %d\n",getLength(L));
+		if (GetElem(L, 1,&e)){
+		printf("The first element is %d\n",e);
+		}
+		
+		else
+		{
+			printf("list is empty\n");
+		}
+		if (isEmpty(L))
+		{
+			printf("list is empty\n');
+		}
+		else
+		{
+			printf("list is not empty\n");
+		}
+		printf("The 5 at %d\n",FindElem(L,5,*compare));
+		
+		if (DestroyList(&L))
+		{
+		printf("\ndestroy_success\n:);
+		}
+	}
+}
