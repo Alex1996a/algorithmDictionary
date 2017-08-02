@@ -1,0 +1,19 @@
+#Longest Common Substring 
+
+Gice two strings find the longest common substring
+
+return the length of it.
+
+class Solution:
+	def longestCommonSubString(self,A,B):
+		ans = 0
+		for i in xrange(len(A)):
+			for j in xrange(len(B)):
+				i = 0
+				while i + 1 <len(A) and j +1 <len(B)\
+				and A[i+1] == B[j+1]:
+					i +=1
+				if i > ans:
+					ans = i
+		return ans
+

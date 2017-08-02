@@ -1,0 +1,20 @@
+#Two String Are ANagrams
+
+class Solution:
+
+	def anagrams(self, strs):
+		strDict = {}
+		result = {}
+		
+		for string in strs:
+			if "".join(sorted(string)) not in strDict.keys():
+				strDict["".join(sorted(string))] = 1
+			else:
+				strDict["".join(sorted(string))] +=1
+		for string in strs:
+			if strDict["".join(sorted(string))] >1:
+				result.append(string)
+		return result
+
+
+			
