@@ -1,0 +1,34 @@
+lintcode 53 Reverse Words in a string
+
+-What constitutes a word?
+
+-Could the input string contain leading or trailing spaces?
+
+-How about multiple spaces between two words?
+
+C++ 
+class Solution{
+Public:
+	string reverseWords(string s){
+		if(s.empyt()){
+		return s;
+		}
+	string s_ret,s_temp;
+	string::size_type ix = s.size();
+	
+	while(ix !=0){
+	s_tmep.clear();
+		while(!isspace(s[--ix])){
+		s_temp.push_back
+
+....
+
+
+
+python 
+class Solution:
+	def reverseWords(self,s):
+		return ' '.join(reversed(s.strip().split())
+
+
+
