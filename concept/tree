@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdio.h>
+
+#define TRUE 1
+#define FALSE 0 
+#define OVERFLOW -2
+#define OK 1
+#define ERROR 0 
+
+type int Status;
+typedef int TElemType;
+
+typedef struct BiTNode
+{
+	TElemType data;
+	struct BiTNode *lchild, *rchild;
+}BiTNode, *BiTree;
+
+Status CreateBiTree(BiTree *T)
+{
+	TElemType e;
+	scanf("%d",&e);
+	
+	if (e == 0)
+	{
+		*T = NULL;
+	}
+	else
+	{
+		*T = (BiTree) malloc(sizeof(BiTnode));
+		if (!T)
+		{
+			exit(OVERFLOW);
+		}
+		(*T)->data = e;
+		CreateBITree(&(*T)->lchild);
+		CreateBiTree(&(*T)->rchild);
+	}
+	return OK;
+void visit(TElemType e)
+{
+	printf("%D", e);
+}
+
+Status PreOrderTraverse(BiTree T,Void (*visit)(TElemType))
+{
+	if (T)
+	{
+		visit(T-data);
+		PreOrderTrverse(T->lchild, visit);
+		PreOrderTrverse(T->rchild,visit);
+	}
+}
+
+Status InOrderTracerse(BiTree T, void (*visit)(TElemType))
+{
+	if (T)
+	{
+		InOrderTraverse(T->lchild, visit);
+		visit(T->data);
+		InOrderTraverse(T->rchld, visit);
+	}
+}
+
+Status PostOrderTraverse(BiTree T, void(*visit)(TElemType))
+{
+	if (T)
+	{
+		PostOrderTraverse(T->lchild,visit);
+		PostOrderTraverse(T->rchild,visit);
+		visit(T->data);
+	}
+}
+int main()
+{
+	BiTree T;
+	printf("create tree")
+	CreateBiTree(&T);
+	printf(" order")
+
+
+
+
+
+
+
+	return 0 ;
+}
+
