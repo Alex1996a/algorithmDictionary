@@ -1,0 +1,38 @@
+leetCode:Longest Palindromic Substring |
+2017-8-4
+
+# solution 1
+
+1\ list all the substring
+
+Python:
+
+
+class Solution:
+	#@param string is input string
+	#@return {string} the longest palindromic substring
+
+	def longestPalindrome(self, s):
+		if not s:
+			return ""
+		n = len(s)
+		longest, left, right = 0, 0, 0
+		
+		for i in range(0,n):
+			for j in range(0, n):
+				substr = s[i:j]
+				if self.isPalindrome(substr) and len(substr)\
+> longest:
+					longest = len(substr)
+					left, right = i, j
+
+		result = s[left:right]
+		return result
+	def isPalindrom(self, s):
+		if not s:
+			return False
+		return s == s[::-1]
+
+# another soluiton 
+
+

@@ -1,0 +1,28 @@
+lintCode 53
+
+class Solution{
+
+public:
+	string reverseWords(string s){
+		if (s.empty()){
+			return s;
+		}
+		
+	string s_ret , s_temp;
+	string::size_type ix = size();
+	while(ix !+-){
+		s_temp.clear();
+		while(!isspace(s[--ix])){
+			s_tmp.push_back(s[ix]);
+			if (ix == 0){
+			break;
+			}
+		}
+		if (is_temp.empty()){
+			if(!s_ret.empty()){
+				s_ret.push_back(' ');
+			}
+		std::reverse(s_temp.begin(),s_temp.end());
+		
+		s_ret.append(s_temp);
+
