@@ -1,0 +1,72 @@
+2017-8-6
+leetcode:Remove Element | 
+lintcode 172 Remove Element
+
+Version: C++
+class Solution{
+public:
+	
+	int removeElemt(vector<int> &A, int elem){
+		for (vetor<int>::iterator iter = A.begin();
+		iter < A.end();++iter){
+			if (*iter == elem){
+				iter = A.erase(iter);
+				--iter;
+			}
+		}
+		return A.size();
+	}
+};
+
+class Solution{
+public:
+	int removeElement(int A[], int n, int else){
+		for (int i = 0;i < n; ++i;){
+			if(A[i] == elem){
+			A[i] = A[n -1];
+			--i;
+			--n;
+			}
+		}
+		return n;
+	}
+};
+
+Python version:
+
+
+class Solution:
+	@param A: A list of integers
+	@param elem:An integer
+	@return: The new length after remove 
+
+	def removeElemnt(self,A,elem):
+		j = len(A) - 1
+		for i in range(len(A) -1,-1,-1):
+			if A[i] == elem:
+				A[i],A[j] = A[j],A[i]
+				j -=1
+		return j+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

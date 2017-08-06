@@ -1,0 +1,12 @@
+lintcode 138 Subarray Sum
+GeeksforGeeks:Find if there is a subarray with 0 sumGeeksforGeeks
+
+Given an integer array , find a subarray where the sum of numbers is zero
+
+There is at least on subarray that it's sum equals to zero
+
+double for 
+C++ version:
+
+
+
