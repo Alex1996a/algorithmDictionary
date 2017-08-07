@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <map>
+
+using namespace std;
+
+class Solution{
+public;
+	@param nums: A list of integers
+	@return : A list of integers includes the index of the first number
+	@and the index of the last number
+
+	vector<int> subarraySum(vector<int> nums, int k){
+		vector<int> result;
+		// curr_sum for the first item ,index for the second item
+		// unorderd_map<int ,int> hash;
+		
+	map<int, int>hash;
+	has[0] = 0;
+	
+	int curr_sum = 0;
+	for ;

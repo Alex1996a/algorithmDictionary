@@ -7,6 +7,74 @@ There is at least on subarray that it's sum equals to zero
 
 double for 
 C++ version:
+8-7 2017
 
+
+class Solution{
+public:
+	* @param nums: A list of integers
+	* @return: A list of integers inculdes the index of the first number
+	* and the index of the last number
+
+	vertor<int> subarraySum(vertor<int> nums){
+		vertor<int> result;
+	
+	int curr_sum = 0;
+	vector<int> sum_i;
+	for(int i = 0;i != nums.size();++i){
+		curr_sum +=nums[i];
+		
+		if (0 == curr_sum){
+		result.push_back(0);
+		result.push_back(i);
+		return result;
+		}
+		
+	vector<int>::iterator iter = find(sum_i.begin(),sum_i.end(),curr_sum);
+		if(iter != sum_i.end()){
+			result.push_back(iter - sum_i.begin() + 1);
+			
+			result.push_back(i);
+			return result;
+		}
+		sum_i.push_back(curr_sum);
+	}
+	return result;
+	}
+};
+
+
+Hash table;
+ 
+
+class Solution{
+public:
+	* @param nums: A list of intergers
+	* @return: A list of integers includes the index of the first number
+	* and the index of the last number
+
+	vector<int> subarraySum(vector<int> nums){
+		vector<int> result;
+		
+		map<int,int> hash;
+		hash[0] = 0;
+		
+		int curr_sum = 0;
+		
+		for (int i = 0;i !=nums.size();++i){
+			curr_sum += nums[i];
+			if(hash.find(curr_sum) != hash.end()){
+			result.push_back(hash[curr_sum]);
+			result.push_back(i);
+			return result;
+		} else{
+			hash[curr_sum] = i + 1;
+			}
+		}
+			return result;
+
+		}
+};
+		
 
 
