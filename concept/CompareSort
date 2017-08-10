@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdio.h>
+
+int n;
+
+void SelectSort(int *array)
+{
+	int i,j,k,temp;
+	for( i = 0; i < n; i++)
+	{
+		k = i;
+		for(j = i + 1;j < n;j ++)
+		{
+			if(array[j] < array[k])
+			{
+				k = j;
+			}
+		}
+		if ( k != i)
+		{
+			remp = array[i];
+			}
+		}
+}
+
+int main()
+{
+	int i;
+	int *array;
+	printf(" please input the array");
+	scanf("%d",&n);
+	array = (int*) malloc(sizeof(int) * );
+	printf("input the data :");
+	for(i = 0;i < n; i++)
+	{
+		scanf("%d",&arraypi]);
+	}
+	SelectSort(array);
+	printf("After Sorted");
+	for ( i = 0 ;i < n; i++)
+	{
+		printf("%d",array[i]);
+	}
+	printf("\n");
+}
+
+
