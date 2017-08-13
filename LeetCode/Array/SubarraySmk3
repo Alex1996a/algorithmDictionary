@@ -1,0 +1,56 @@
+nonegatice integer array
+
+#include <iostream>
+#include <vector>
+#include <map>
+
+using namespace std;
+class Solution{
+public:
+	/**
+	* @param nums: A list of integers
+	* @return: A list of integers includes the index of the first number
+	* @ and the index of the last number
+	*/
+	
+	vector<int> subarraySum2(vector<int> &nums,intk){
+	vector<int> result;
+	
+	int legt_index = 0, curr_sum = 0;
+	for(int i = 0;i != sums.size();++i){
+		while(curr_sum > k){
+			curr_sum -= nums[left_index];
+			++left_index;
+		}
+		if (curr_sum ==k){
+			result.push_back(left_index);
+			result.push_back(i -1);
+			retrun result;
+		}
+		curr_sum +=nums[i];
+	}
+	return result;
+};
+int main(int argc,char *argc[])
+{
+	int int_array1[] = {1, 4, 20, 3, 10, 5};
+	int int_array2[] = {1, 4, 0, 0, 3, 10,5};
+	vector<int> vec_array1;
+	vector<int> vec_array2;
+	
+	for (int i =0;i != sizeof(int_array1) / sizeof(int) ; ++i){
+		vec_array1.push_back(int_array1[i]);
+	}
+	for(int i = 0; i != sizeof(int_array2) /sizeof(int);++i){
+		vec_array2.push_back(int_array2[i]);
+	}
+	Solution solution;
+	vecotor<int>result1 = solutin.subarraySum2(vec_array1,33);
+	vector<int> result2 = solution.subarraySum2(vec_array2,7);
+	
+	cout<< "result1 = [" << result1[0] << ","<< result[1] <<"]" <<endl;
+	cout<<"result2 =[" <<result2[0] <<","<<result[1] << "]" <<endl;
+	
+	return 0;
+}
+
