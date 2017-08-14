@@ -1,0 +1,17 @@
+08-14
+
+class solution:
+	def productExcludeItself(self,A):
+		length, B = len(A), []
+		f = [ 0 for i in range(length +1)]
+		f[length] = 1
+		
+		for i in range(length-1,0,-1):
+			f[i] = f[i +1]*A[i]
+			tmp = 1
+		
+		for i in range(length):
+			B.append(temp * f[i +1])
+			temp *=A[i]
+		return B
+	
