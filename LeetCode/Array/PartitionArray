@@ -1,0 +1,56 @@
+lintcode:31 Partition Array
+
+8-15-2017
+
+Given an array nums of integers and an int k , partition the array
+
+Can you parition the array in-place and in O(n),challenge
+
+clss Solution{
+public:
+	int partitionArray(vector<int> &nums,int k ){
+	
+		int right = 0;
+		const int size = num.size();
+		for (int i = 0; i < size; ++i){
+			
+			if (nums[i] < k&&i >=right){
+				
+				int temp = num[i];
+				nums[i] = nums[right];
+				nums[right] = temp;
+				++right;
+				}
+			}
+		return right;
+	}
+};
+
+QUick Sort !?
+
+
+class Solution{
+	public:
+	int partitionArray(vectot<int>&nums, int k){
+		int left = 0,right = nums.size() -1;
+		
+		while (left <= right){
+			while (left <= right && nums[left] <k) ++left;
+			
+			while (left <= rihght && nums[right] >= k) --right;
+			
+			if (left <= right) {
+				
+				int temp ;
+				temp = nums[left];
+				nums[left] = nums[right];
+				nums[right] = temp;
+				++left;
+				--right;
+			}
+		}
+		
+		return left;
+	}
+};
+	
