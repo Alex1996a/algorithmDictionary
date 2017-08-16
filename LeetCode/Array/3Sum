@@ -1,0 +1,46 @@
+3 Sum | LeetCode
+lintcode 57 3 Sum
+8-16-2017-.....
+
+Given an array S of n integers ,are there elements a,b,c in s such that 
+a + b + c = 0 ?
+
+Find all unique triplets in the array which gives the sum of zero.
+
+1SUm + 2 Sum  
+
+Python 
+
+
+class Solution:
+	"""
+	@param numbersbers :Give an array numbers of n integer
+	@return : Find all unique triplets in the array which gives the sum of 
+zero.
+	
+	def threeSum(self,numbers):
+		triplets = []
+		length = len(numbers)
+		
+		if length < 3:
+			return triplets
+		
+		numbers.sort()
+		for i in range(length):
+			target = 0 - numbers[i]
+			
+			# 2 Sum 
+			hashmap = {}
+			
+			for j in range(i+1,length):
+				item_j = numbers[j]
+				
+				if (target - item_j) in hashmap:
+					triplet = [numbers[i],target - item_j,item_j]
+					
+					if triplet not in triplets:
+						triplets.append(triplet)
+				else:
+					hashmap[item_j] = j
+			return triplets
+
