@@ -1,0 +1,59 @@
+3 sum closets | leetcode 
+8-17
+
+Given an array s of n integers, find three integers in s such that the sum is closest to a given number,target.l
+
+I can't understand it ..
+why I can return the sum of the three integers that equal to the targets?
+
+Python 
+:   sort + 2 Sum + hash?  
+
+class Solution:
+	"""
+	@param numbers :give an array numbers of integer
+	@param target: an integer
+	@return : return the sum of the three integers the sum closest target.
+	"""
+	def threeSumClosest(self, numbers,target):
+		result = 2**31 -1
+		length = len(numbers)
+		
+		if length <3:
+			return result
+		
+		numbers.sort()
+		larget_count = 0
+
+		for i,item_i in enumerate(numbers):
+			start = i +1
+			end = length -1
+
+			#optimization 1 - filter the smallest sum greater then target
+
+			if start < end:
+				sum3_smallest = numbers[start] + numbers[start + 1] + item_i
+				
+				if sum3_samllest > target:
+					larger_count +=1
+				
+					if larger_count >1:
+						return result
+
+			while (start < end):
+				
+				sum3 = numbers[start] + numbers[end] + item_i
+
+				if abs(sum3 - target) < abs(result - target):
+					result = sum3
+
+				#optimization 2 -filter the sum3 closest to target
+				
+				sum_flag = 0
+
+				if sum3 > target:
+					end -=1
+					
+					if sum_flag ==-1:
+:wq
+
