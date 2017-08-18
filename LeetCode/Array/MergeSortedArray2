@@ -1,0 +1,65 @@
+8-18
+lintcode : 64 Merge Sorted Array 2
+
+Merge two given sorted integer array A and B into a 
+new sorted integer array
+
+In place ?
+return new array?
+
+Python:
+
+class Solution:
+
+	#@param A and B
+	#@ return : A new sorted integer array
+
+	def mergeSortedArray(self, A,B):
+		if A is None or len(A) ==0:
+			return B
+
+		if B is None or len(B) ==0:
+			return A
+
+		C = []
+		aLen, bLen = len(A),len(B)
+		i, j = 0, 0
+
+		while i <aLen and j < bLen:
+			if A[i] < B[j]:
+				C.append(A[i])
+				i +=1
+			else:
+				C.append(B[j])
+				j +=1
+		# A has elements left
+
+		while i < aLen:
+			C.append(A[i])
+			i +=1
+
+		#B has elements left
+		
+		while j < bLen:
+			C.append(B[j])
+			j +=1
+		retrun C
+
+C++: version
+
+
+class Solution{
+public:
+	/**
+	*/
+
+	vector<int> mergeSortedArray(vector<int>) &A,vector<int> &B{
+		if (A.empty()) return B;
+		if (B.empty()) return A;
+		
+		int aLen = A.size(), bLen = B.size();
+		vector<int> C;
+		
+		int i = 0,j = 0;
+		
+		while(

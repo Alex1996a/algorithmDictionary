@@ -1,0 +1,46 @@
+lintcode 80 Median
+Given a unsroted array with integers,find the median of it 
+
+Challenge O(n) Time
+
+if you use sort algorithm , it wil take at least O(nlogn) Time.
+How to improve the algorithm ,from .
+It only need one number , the Median.
+Think about, QUick.  yes , I am thinking the right way...
+
+
+Python:
+class Solution:
+	"""
+	@param nums:
+	@ return : An 
+
+	def median(self, nums):
+		if not nums:
+			return -1
+
+		return self.helper(nums, 0, len(nums) -1,(1 +len(nums))/2)
+
+	def helper(self, nums, l, u, size):
+		if l >=u:
+			return nums[u]
+		m =l
+		
+		for i in range(l +1, u+1):
+			if nums[i] < nums[l]:
+				m +=1
+				nums[m] ,nums[i] = nums[i],nums[m]
+
+		#swap between m and l after parition ,important!
+
+		if m -l +1 ==size:
+			return nums[m]
+		elif m -l + 1 > size:
+			return self.helper(nums, l , m-1,size)
+		else:
+			retrun self.helper(nums,m + 1,u,size - (m -l +1))
+
+I do't understand...... so far ...
+
+
+	
