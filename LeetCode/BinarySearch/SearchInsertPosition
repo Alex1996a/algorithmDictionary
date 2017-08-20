@@ -1,0 +1,42 @@
+Search Insert Position
+
+lintcode : Search Insert Position
+8-20
+
+You may assume NO duplicates in the array.
+
+
+Challenge:
+O(log(n)) Time
+
+first position that value is >= target!   stupid .!
+- -- - ----- - - - - -  - - - - -- - - - - - - - - -- - - - - -- - -- - -- - --
+
+Python:
+class Solutionn:
+	"""
+	@param
+
+
+	"""
+	def searchInsert(self, A, target):
+		if not A:
+			return 0
+		st, ed = 0, len(A) -1
+
+		while st + 1 < ed:
+			mid = (st +ed) / 2
+
+			if A[mid] == target:
+				ed = mid
+			elif A[mid] < target:
+				st = mid
+			else:
+				ed = mid 
+		if A[st] >= target:
+			return st
+		elif A[ed] >= target:
+			return ed
+		else:
+	          return len(A)
+

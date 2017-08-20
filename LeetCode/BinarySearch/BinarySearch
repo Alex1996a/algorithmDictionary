@@ -1,0 +1,43 @@
+lintcode 14 Binary Search
+8-20:
+For a given sorted array (ascending order ) and a target number , find the first
+index of this number in O(log n) time complexity.
+
+if the target number does not exist in the array return -1;
+
+
+Challenge;
+if the count of the numbers is bigger than 2**23, can your code work properly?
+
+class Solution{
+	/**
+	*@param nums: the integer array.
+	*@param target: Target to find.
+	*@return : The first position of target. Position starts from 0.
+	
+	public int binarySearch(int[] nums, int target){
+		if (nums ==null || nums.length == 0){
+			return -1;
+		}
+		int start = -1, end = nums.length;
+		int mid;
+		while (start +1< end){
+			// avoid overflow when (end + star)
+		
+			mid = start + (end - start) /2;
+			
+			if (nums[mid] < target){
+				start = mid;
+			} else{
+				end = mid;
+			}
+		}
+		if (end == nums.length || nums[end] != target){
+
+			return -1;
+			}
+			else{
+				return end;
+			}
+		}
+	}	
