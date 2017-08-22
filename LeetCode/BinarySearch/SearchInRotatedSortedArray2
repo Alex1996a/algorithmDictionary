@@ -1,0 +1,61 @@
+8-22
+lintCode: Search in Rotated Sorted Array 2
+
+leetcode :Search in Rotated Sorted Array 2
+
+Follow up for "Search in Rotated Sorted Array"
+what if duplicates are allowed?
+
+C++:
+
+class Solution{
+	/**
+	*param A : an integer ratated sorted array an duplicates are allowed
+	* reutrn a boolean
+	*/
+
+public:
+	bool search(vector<int>&A, int target){
+		if(A.empty()){
+			return false;
+		}
+
+		vector<int>::size_type start = 0;
+		vector<int>::size_type end = A.size() -1;
+		vector<int>::size_type mid;
+		
+		while (start + < end){
+			mid = start + (end -start) /2
+			if (target == A[mid]){
+				return true;
+			}
+
+			if (A[start] < A[mid] ){
+				//situation 1, numbers between start and mid are sorted
+				if (A[start] <= target && target < A[mid]){
+						
+						end = mid;
+				} else {
+						start = mid;
+				} else if (A[start] > A[mid]) {
+				// situation 2, numbers between mid and end are sorted
+					if (A[mid] < target && target <=A[end]){
+				
+						start = mid;
+					} else {
+							end = mid;
+					}
+				} else {
+					// increment start
+					++start;
+				}
+			}
+
+			if (A[start] == target || A[end] == target){
+				return true;
+			}
+			return false;
+		}
+};
+
+		

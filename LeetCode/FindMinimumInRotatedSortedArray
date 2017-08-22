@@ -1,0 +1,37 @@
+8-22
+Find Minimum in Rotated Sorted Array
+
+C++
+
+Suppose a sorted array is rotated at some pivot unknown to you beforehand
+
+class Solution{
+public:
+	/**
+	* @param num: a rotated sorted array
+	* @return : the minimum number in the array
+	*/
+
+	int findMin(vector<int> &num){
+		if (num.empty()) {
+			return -1;
+		}
+
+		vector<int>::size_type start = 0;
+		vector<int>::size_type end = num.size() -1;
+		vector<int>::size_type mid;
+		while (start +1 < end) {
+			mid = start + (end - start) / 2;
+			if (num[mid] < num[end]){
+				end = mid;
+			}else{
+				start = mid;
+			}
+		}
+		if (num[start] < num[end]){
+			return num[start];
+		} else{
+			return num[end];
+		}
+	}
+};
