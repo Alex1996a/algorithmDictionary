@@ -1,0 +1,32 @@
+lintcode 74 :First Bad Version
+
+Python
+
+#class VersionControl:
+	@classmethod
+	def isBadVersion(cls,id)
+	Run unit tests to check whether version 'id' is a bad version
+	# Return true if unit tests passed else false
+	#You can use VersionControl.isBadVersion(10) to check whether version 10 is
+a bad version
+
+class Solution:	
+	"""
+		lower bound
+	"""
+	def findFirstBadVersion(self, n):
+	
+		lb, ub = 0, n+1
+		
+		while lb + 1< ub:
+			
+			mid = lb + (ub -lb)/2
+			
+			if VersionControl.isBadVersion(mid):
+			
+				ub = mid
+			else:
+				lb = mid
+		return lb +1
+
+	
