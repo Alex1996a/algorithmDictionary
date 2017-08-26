@@ -1,0 +1,35 @@
+CC150: lintcode 181 Convert Integer A to Integer B
+
+DeterTime the number of bits required ot convert integer A to integer B
+
+Example 
+Given 
+
+class Solution:
+
+	"""
+	@param a, b: Two integer
+	return: An integer
+	
+	"""
+	def bitSwapRequired(self, a, b):
+
+	count = 0
+	a_xor_b = a ^ b
+	neg_flag = False
+	
+	if a_xor_b < 0:
+		a_xor_b = abs(a_xor_b) -1
+		neg_flag = True 
+		
+	while a_xor_b > 0;
+		count +=1
+		a_xor_b &= (a_xor_b - 1)
+	
+	# bit_wise =32
+
+	if neg_flag:
+		count = 32 - count
+	return count
+
+

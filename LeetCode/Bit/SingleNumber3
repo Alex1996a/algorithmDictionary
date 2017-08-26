@@ -1,0 +1,36 @@
+lintcode:84: singel Number, every numbers occurs twice excep two , find them.
+
+Java
+
+pulic class Solution{
+	/**
+	* @param A : An interger array
+	* @return : two integers 
+	*/
+
+	public List<Integer> singleNumberIII(int[] A){
+		ArrayList<Integer> nums = new ArrayList<Integer> ();
+		if (A == null || A.length == 0) return nums;
+		
+		int x1 xor x2 = 0;
+		
+		for (int i : A) {
+			x1 xor x2 ^=i;
+		}
+	// get the last 1 bit of x1 xor x2, e.g
+
+		int last1Bit = x1 xor x2 - (x1 xor x2) &(x1 xor x2 -1));
+		
+		int single1 = 0, single2 = 0;
+		for (int i :A){
+			if ((last1Bit & i) == 0) {
+				single ^= i;
+			} else {
+				single2 ^= i;
+			}
+		}
+		nums.add(single1);
+		nums.add(single2);
+		return nums;
+	}
+}
