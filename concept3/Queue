@@ -1,0 +1,34 @@
+python: dynamic array
+
+
+queue = []
+
+size = len(queue)
+
+queue.append(1)
+
+queue.append(2)
+
+queue.pop(0) # return 1
+
+queue[0 # return 2 examine the first element
+
+
+* Insert queue.append(e)
+* Remove queue.pop(0)
+* Examine queue[0]
+
+
+Deque double-ended queue : 
+
+collections  deque  
+dq = collections.deque();
+
+enqueue left dq.appendleft(e) 
+enqueue right dq.append(e)
+dequeue left dq.popleft()
+dequeue right dq.pop()
+peek left dq[0]
+peek right dq[-1]
+
+

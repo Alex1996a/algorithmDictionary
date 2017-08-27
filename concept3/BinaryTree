@@ -1,0 +1,18 @@
+Python:
+
+class TreeNode:
+	def __init__(self, val):
+		self.val = val
+		self.left, self.right = None, None
+
+C++:
+
+struct TreeNode{
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x): val(x), left(NULL), right(NULL) {}
+};
+
+
+
