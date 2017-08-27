@@ -1,0 +1,23 @@
+Python:
+class ListNOde:
+	def __init__(self, val):
+		self.val = val
+		self.next = None
+C++ 
+struct ListNode {
+	int val;
+	ListNode *next;
+	ListNode(int val, ListNode *next=Null):val(val), next(next){}
+};
+
+Java:
+public class ListNode{
+	public int val;
+	public ListNode next;
+	public ListNode(int val){
+		this.val = val;
+		this.next = null;
+	}
+}
+
+
