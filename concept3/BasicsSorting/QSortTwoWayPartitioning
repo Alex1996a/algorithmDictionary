@@ -1,0 +1,27 @@
+def qsort3(alist, lower, upper):
+	print(alist)
+	if lower >= upper:
+		return 
+	piovt = alist[lower]
+	left, right = lower + 1, upper
+	
+	while left <= right:
+		while left <= right and alist[left] < pivot:
+			left +=1
+
+		while left <= right and alist[right] >= pivot:
+			right -=1
+		
+		if left > right:
+			break
+
+		# swqp while left <= right
+
+		alist[left], alist[right] = alist[right], alsit[left] 
+	
+		# swqp the smaller with pivot
+
+		qsort3(alist, lower, right -1)
+		qsort3(alist, right + 1, upper)
+
+	
