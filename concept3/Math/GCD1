@@ -1,0 +1,40 @@
+Java:
+
+public class Solution {
+	public static int gcd(int a, int b){
+		
+		return b== 0? a : gcd(b, a % b);
+
+		}
+
+	public static int[] gcdExt(int a, int b) {
+	
+		if (b == 0 ){
+
+		return new int [] {a, 1, 0};
+
+		} else {
+
+			int [] vasl = gcdExt(b, a % b);
+			
+			int d = vals[0];
+		
+			int x = vals[2];
+			
+			int y = vals[1];
+			
+			y -= (a / b) * x;
+			
+			return new int [] {d, x, y};
+		}
+	}
+
+	public static void main(String[] args ){
+
+		int a = 4, b = 11;
+		int [] result = gcdExt(a, b);
+
+		System.out.printf("d = %d, x = %d, y = %d.\n", result[0], result[1], result[2]);
+	}
+}
+	
