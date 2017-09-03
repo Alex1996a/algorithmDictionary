@@ -1,0 +1,60 @@
+9-3
+KnapSack with repetition
+Unbounded KnapSack problem  
+
+Knapsack without repetion-01
+
+
+JAVA:
+
+import java.util.*;
+
+public class Backpack{
+
+	// 01 backpack with samll datasets(O(nW), W is small)
+
+	public static int backpack(int W, int [] w, int [] v, boolean[] itemTake){
+
+		int N = w.length;
+
+		int [][] dp = new int[N + 1][W + 1]
+
+		boolean[][] matrix = new boolean[N + 1][W +1];
+
+		for (int i = 0; i < N; i++){
+
+			for (int j =0; j <= w; j++){
+
+				if (w[i] > j) {
+
+					// backpack cannot hold w[i]
+
+					dp[i + 1][j] = dp[i][j];
+				}else {
+
+					dp[i + 1][j] = Math.max(dp[i][j], dp[i][j - w[i]] + v[i]);
+
+			// pick item i and get value j 
+
+			matrix[i][j] = (dp[i][j - w[i]] + v[i] > dp[i][j]);
+
+			}
+		}
+	}
+
+	// determine which items to take 
+
+	for ( int i = N -1, j = W; i >= 0; i--){
+		if (matrix[i][j]){
+
+			itemTake[i] = true;
+			j -= w[i];
+		} else{
+
+			itemTake[i] = false;
+		}
+	}
+
+	return dp[N][W];
+	}
+
