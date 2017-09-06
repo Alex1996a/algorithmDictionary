@@ -1,0 +1,27 @@
+lintcode : Majority Element 
+
+C++ 
+
+int maforityNumber(vector<int> nums){
+
+	if (nums.empty()) return -1
+
+	int k = -1, count = 0
+
+	for (auto n : nums){
+
+		if (! count) k = n;
+		
+		if (k == n) count++;
+
+		else count--;
+		
+		}
+		reuturn k;
+}
+
+
+
+
+
+	
