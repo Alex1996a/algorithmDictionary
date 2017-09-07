@@ -1,0 +1,46 @@
+leetcode: Majorith Element | LeetCode
+9-7
+
+Java:
+
+public class Solution{
+	/**
+
+	*/
+
+
+	public int majorithNumber(ArrayList<Integer> nums){
+
+		if (nums == null || nums.isEmpty()) return -1;
+
+		// pair<key, count>
+
+		int key = -1, count = 0;
+
+		for (int num : nums) {
+
+			// re-initialize 
+
+			if (count == 0) {
+
+				key = num;
+				count = 1;
+				
+				continue;
+			}
+			// increment/ decrement count
+			
+			if (key == num) {
+				
+				count++;
+			}
+			else {
+				
+				count--;
+			}
+
+		}
+		return key;
+	}
+}
+
