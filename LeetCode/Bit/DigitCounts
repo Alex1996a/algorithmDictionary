@@ -1,0 +1,33 @@
+Digit Counts
+
+leetcode : Number of Digit One | LeetCode OJ
+
+Count the number of k's between 0 and n. k can be 0-9
+
+class Solution{
+public:
+
+	/* 
+	*
+	*
+	* return: How many k's between 0 and n.
+	*/
+
+	int digitCounts(int k , int n){
+	
+		char c = k + '0'
+
+		int count = 0;
+
+		for (int i = k ;i <= n; i++){
+
+			for (auto s : to_string(i)){
+
+				if (s == c) count++;
+
+			}
+		}
+		return count;
+	}
+};
+

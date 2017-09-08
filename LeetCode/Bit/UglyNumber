@@ -1,0 +1,56 @@
+Ugly Number
+
+lintcode : 4 Ugly Number
+
+9-8
+
+TLE?
+
+Java:
+
+class Solution{
+
+	/** 
+
+	* 
+	*/
+
+	public long kthPrimeNumber(int K){
+
+		if (k <= 0) return -1;
+
+		int count = 0;
+		long num = 1;
+		
+		while (count < k) {
+
+			num++;
+			if (isUgly(num)) {
+
+				count++;
+			}
+		}
+		return num;
+	}
+	private boolean isUgly(long num) {
+
+		while (num % 3 == 0) {
+			
+			num /= 3;
+		}
+
+		while (num % 5 == 0) {
+			
+			num /= 5;
+
+		}
+
+		while (num % 7 == 0 ){
+
+			num /= 7;
+		}
+
+		return num == 1;
+	}
+}
+
