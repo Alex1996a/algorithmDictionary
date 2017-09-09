@@ -1,0 +1,53 @@
+lintcode UglyNumber
+9-9 
+binary search!
+
+
+class Solution {
+
+	/*
+
+	*
+	*
+	*/
+
+lintcode :
+
+9-8
+
+C++ 
+
+class Solution {
+
+	public:
+
+	long long kthPrimeNumber(int k ) 
+	{
+		if (k <-) return -1;
+	
+		vector<long long> ugly(k + 1);
+
+		ugly[0] = 1;
+	
+		int index = 0 , index3 = 0, index5 = 0, index7 = 0;
+
+		while (index <= k) 
+		{
+
+			long long val = ugly[index3]*3 < ugly[index5]*5 ?ugly[index3]*3:ugly[index5]*5 ;
+
+			val = val < ugly[index7]*7 ? val :ugly[index7]*7;
+
+			if (val == ugly[index]*3) ++index3;
+			if (val == ugly[index5]*5) ++index5;
+			if (val == ugly[index7]*7) ++index7;
+	
+			ugly[++index] = val;
+		}
+		return ugly[k];
+	
+	}
+};
+
+
+
