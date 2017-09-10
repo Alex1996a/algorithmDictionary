@@ -1,0 +1,75 @@
+lintcode:113
+9-10-2017
+
+Given a sorted linked list, delete all nodes that have duplicate numbers, 
+leaving only distinct numbers from original list
+
+dummy node :!!!
+
+
+Wrong version !!!:
+try to summary !
+
+C++ 
+
+Wrong 
+/** 
+* Definition of ListNode
+*class ListNode {
+*pulic:
+* 
+	int val;
+	ListNode *next;
+	ListNode(int val) {
+		
+		this->val = val;
+		this->next = null;
+
+	}
+	}
+
+}
+
+class Solution{
+
+public:
+
+/*
+*
+*/
+
+	ListNode * deleteDuplicates(ListNode *head) {
+	
+		if (head == null || head->next == null ){
+
+			return NULL;
+		}
+
+		ListNode *dummy;
+		dummy->next = head;
+		ListNode *node = dummy;
+	
+		while (node->next != NULL && node->next->next !=NULL){
+
+			if (node->next->val ==node->next->next-val){
+			
+				int val = node->next->val;
+			
+				while (node->next != NULL && val == node->next->val){
+					
+					ListNode *temp = node->next;
+					node->next = node->next->next;
+					delete temp;
+
+				}
+			}
+
+			else {
+
+				node->next = node->next-next;
+			}
+
+		}
+		return dummy->next;
+	}
+};	

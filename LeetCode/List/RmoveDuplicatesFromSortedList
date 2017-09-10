@@ -1,0 +1,86 @@
+9-10
+lintcode: 112
+Remove Duplicates from Sorted List
+
+Given a sorted linked list, delete all duplicates such that each element
+apper only once 
+
+
+Python
+
+"""
+Definintion of ListNode
+class ListNode(object):
+
+	def __init__(self, val, next=None):
+
+		self.val = val
+		self.next = next
+"""
+
+class Solution:
+
+	"""
+	@param head: A ListNode
+	@return: A ListNode
+
+	"""
+
+	def deleteDuplicates(self, head):
+
+		curt = head
+
+		while curt:
+			
+			while curt.next and curt.next .val == curt.val:
+			
+				curt.next = curt.next.next
+			curt = curt.next
+		return head
+
+
+C++ 
+
+
+/**
+* Definition of ListNode
+* class ListNode {
+
+* public:
+		int val;
+		ListNode *next;
+		ListNode(int val) {
+
+			this->val = val;
+			this->next = NULL;
+		}
+	}
+
+	class Solution {
+
+public:
+	/** 
+	* @param head: The first node of linked list.
+	* @return:head node 
+	*/
+	
+
+	ListNode *deleteDuplicates(ListNode *head) {
+
+		ListNode *curr = head;
+		while (curr != NULL) {
+
+			while (curr->next != Null && curr->val == cur->next->val){
+
+				ListNode *temp = curr->next;
+				curr->next =cur->next->next;
+				delete(temp);
+				
+				temp = Null;
+			}
+			curr = curr->next;
+		}
+		return head;
+	}
+};
+
