@@ -1,0 +1,57 @@
+9-12-2017
+lintcode 96-Partition List
+
+Python 
+"""
+Definition of ListNode
+
+clsss ListNode(object):
+
+	def __init__(self, val, next=None):
+	
+		self.val = val 
+		self.next = next
+
+"""
+
+class Solution:
+
+	"""
+
+	@param head: The first node of linked list.
+	@param x: an integer
+	@return : a ListNode
+
+	"""
+
+	def partition(self, head, x):
+
+		if head is None:
+			return None
+
+		leftDummy = ListNode(0)
+		left = leftDummy
+
+		rightDummy = ListNode(0)
+		right = rightDummy
+
+		node = head
+
+		while node is not None:
+
+			if node.val < x:
+			
+				left.next = node
+				left = left.next
+			else: 
+				right.next = node
+				right = right.next
+			
+			node = node.next
+		# post-processing
+
+		right.next = None 
+		left.next = rightummy.next
+		
+		return leftDummy.next
+
