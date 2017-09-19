@@ -1,0 +1,34 @@
+9-19
+Reverse Linked List
+
+temp = head->next
+head->next = prev;
+prev = head;
+head = temp;
+
+
+---------------
+
+Python:
+
+class Solution:
+
+	#@param {listNOde{ head
+	#@return {ListNOde}
+
+	def reverseList(self, head):
+	
+		prev = None
+		curr = head 
+
+		while curr is not None:
+
+			temp = curr.next
+			curr.next = prev
+			prev = curr 
+		#fix head
+
+		head = prev
+		
+		return head
+
