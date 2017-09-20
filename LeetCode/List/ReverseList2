@@ -1,0 +1,56 @@
+Rverse a linked list .
+
+Reverse it in-place and in one-pass
+
+
+----------------------------
+
+"""
+Definition of ListNode 
+
+class ListNode(object):
+
+	def __init__(self, val, next=None):
+
+		self.val = val
+		self.next = next
+
+"""
+
+class Solution:
+
+	"""
+
+	@param head: The first node of the linked list.
+	@return: You should return the head of the reversed linked list.
+	
+	reverse it in-place.
+
+	"""
+
+	def reverse(self, head):
+
+		#case1 empty list
+		if head is None:
+			
+			return head
+		#case2 only one element list
+
+		if head.next is None:
+
+			return head
+
+		# case3: reverse from the rest after head 
+
+		newHead = self.reverse(head.next)
+
+		#reverse between head and head->next
+
+		head.next.next = head
+
+		#unlink list from the rest 
+
+		head.next = None
+
+		return newHead
+
