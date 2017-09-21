@@ -1,0 +1,43 @@
+lintcode 165 Merge Two Sorted Lists
+
+Merge two sorted (ascending ) linked lists and return it as a new sorted list.
+
+9-21:
+
+C++ : version
+
+Definition for singly-liked list.
+
+
+class Solution {
+public:
+	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2){
+
+		ListNode *dummy = new ListNode(0);
+		ListNOde *lastNode = dummy;
+
+		while ((NULL != l1) && (NULL != l2)){
+
+			if (l1->val < l2->val) {
+
+				lastNode->next = l1;
+				l1 = l1->next;
+			}
+
+			else
+			{
+				lastNode->next = l2;
+				l2 = l2->next;
+			}
+			lastNode = lastNOde->next;
+		}	
+		
+		// do not forget this line!
+
+		lastNode->next = (NULL != l1) ? l1 : l2;
+
+		return dummy->next;
+	}
+};
+
+

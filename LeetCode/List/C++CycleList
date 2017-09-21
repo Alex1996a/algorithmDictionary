@@ -1,0 +1,67 @@
+C++
+9-21
+Reverse Linked List
+
+
+/**
+* Definition for singly-linked list.
+* struct ListNode{
+*	int val;
+	ListNode *next;
+	ListNode(int x) : val(x) , next(NULL) {}
+* };
+
+class Solution {
+public : 
+	ListNode* reverse(ListNode* head){
+
+		ListNode *prev = NULL;
+		ListNode *curr = head;
+		
+		while (curr != NULL){
+
+			ListNode *temp = curr->next;
+			curr->next = prev;
+			prec = curr;
+			curr =temp;
+		}
+
+	// fix head 
+	head = prev;
+	
+	reutrn head;
+	}
+};
+
+
+3 condition to stop the recursion
+
+this is recursion version for reversing the Linked List.
+
+class Solution {
+public:
+	/* @param:
+	/* @param:
+
+	ListNOde *reverse(ListNOde *head){
+	
+		// case1: empty list
+		
+		if (head == null ) reutrn head;
+
+		// case2: only one element list
+
+		if (head->next == null ) return head;
+		// case3 : reverse from the rest after head
+
+		ListNode *newHead = reverse(head->next);
+		// reverse betweenn head and head->next
+
+		head->next = NULL;
+
+		return newHead;
+	}
+};
+
+
+ 
