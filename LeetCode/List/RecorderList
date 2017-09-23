@@ -1,0 +1,48 @@
+TLE:
+lintcode 99 Reorder List
+9-23
+
+*Definition of ListNode 
+
+
+class Solution {
+public:
+
+	void reoderList(ListNode *head) {
+
+		if (NULL ==head || NULL == head->next || NULL == head->next->next){
+
+			return;
+		}
+
+		ListNode *last = head;
+
+		int length = 0;
+
+		while (NULL != last) {
+
+			last = last->next;
+			++length;
+		}
+
+		last = head;
+
+		for (int i = 1; i < length -i ; ++i){
+
+			ListNode *befroeTail = last;
+		
+			for (int j = i; j < length -i; ++j) {
+
+				beforeTail = beforeTail->next;
+			}
+			ListNode *temp = last->next;
+			last->next = beforeTail->next;
+			last->next->next = temp;
+	
+			beforeTail->next = NULL;
+
+			last = temp;
+		}
+	}
+};
+

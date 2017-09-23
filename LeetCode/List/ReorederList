@@ -1,0 +1,59 @@
+lintcode :
+
+99 Reorder List 
+
+
+reverse the list and merge skill !
+
+
+C++ version
+
+class Solutionn {
+
+public:
+
+	void reorderList(ListNode *head){
+
+		if (head == NULL || head->next ==NULL) return;
+
+		// find middle
+
+		ListNode *slow = head, *fast = head->next;
+		while (fast != NULL && fast->next != NULL) {
+
+			slow = slow->next;
+			fast = fast->next->next;
+		}
+		ListNode *rHead = slow->next;
+		slow->next = NULL;
+
+		
+		// reverse ListNode on the right side
+
+		ListNode *prev = NULL;
+		while (rHead != NULL){
+
+			ListNOde *temp = rHead->next;
+			rHead->next = prev;
+			prev =rHead;
+			rHead = temp;
+		}
+
+		// merge two list
+
+		rHead = prev;
+
+		ListNOde *lHead = head;
+		while (lHead != NULL && rHead != NULL){
+
+			ListNOde *temp1 = lHead->next;
+			lHead->next = rHead;
+			ListNode *temp2 = rHead->next;
+			rHead->next = temp1;
+			lHead = temp1;
+			rHead = temp2;
+		}
+	}
+};
+
+	
