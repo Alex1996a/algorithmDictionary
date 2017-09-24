@@ -1,0 +1,78 @@
+lintcode 105: Copy List with Random Pointer
+
+A linked list is given such that each node contains an 
+additional random pointer
+
+which could point to any node in the list or null.
+
+return a deep copy of the list.
+
+--------------------------------------
+
+
+
+Python version 
+
+# Definition for singly-linked list with a random pointer
+
+# class RandomListNode:
+#	
+#	def __init__(self, x):
+#	
+#		self.label = x
+#		self.next = None
+#		self.random = None
+
+
+
+class Solution:
+
+	# @param head : A RandomListNode
+	# @return : A RandomListNode
+
+	def copyRandomList(self, head0:
+	
+		dummy = RandomListNode(0)
+		curNode = dummy
+		randomMap = {}
+
+		while head is not None:
+	
+			# link noeNode to new List
+			
+			newNode = RandomListNode(head.label)
+			curNode.next = newNode
+
+			#map old node head to newNode
+
+			randomMap[head] = newNode
+			
+			#copy old node random pointer
+
+			newNode.random = head.random
+			#
+
+			head = head.next
+			curNode = curNode.next
+
+			#re-mapping old random node to new node 
+
+			curNode = dummy.next
+			
+			while curNode is not None:
+
+				if curNOde.random is not None:
+
+					curNode.random = randomMap[curNode.random]
+
+					curNode = curNode.next
+
+			return dummy.next
+
+
+
+
+
+
+
+
