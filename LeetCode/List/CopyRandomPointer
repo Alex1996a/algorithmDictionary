@@ -1,0 +1,69 @@
+C++ version 
+9-25-2017
+
+/**
+
+*Definition for singly-linked list with a random pointer
+* struct RandomListNode {
+* 	int label;
+*	RandomeListNode *next, *random;
+*	RandomListNode(int x) :label(x), next(null), random(null){}
+*};
+
+
+class Solution{
+public:
+
+	/*
+	* @param head; The head of linked list with a random pointer.
+
+	* @return A new head of a deep copy of the list.
+
+	*/
+
+	RandomListNode *copyRandomList(RandomListNOde *head) {
+	
+		if (head == NULL ) return NULL;
+
+		RandomListNode *dummy = new RandomListNode(0);
+		RandomListNode *curNode = dummy;
+		unordered_map<RandomListNode *, RandomListNode*>randomMap;
+
+		while(head != NULL){
+
+		// link new Node to new List
+
+		RandomListNode *newNode = new RandomListNode(head->label);
+		curNode->next = newNode;
+
+		//map old node head to newNode
+
+		randomMap[head] = newNode;
+
+		// copy old node random pointer
+
+		newNode->reandom = head->random;
+
+		head = head->next;
+		curNode  =curNode ->next;
+	}
+
+	// re-mapping old node to new node 
+
+
+	curNOde = dummy->next;
+
+	while (curNode !=NULL){
+
+		if (curNode->random != NULL){
+
+			curNode->random = randomMap[curNode->random];
+		}
+		curNode = curNode->next;
+	}
+	return dummy->next;
+
+	}
+};
+
+

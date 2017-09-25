@@ -1,0 +1,54 @@
+Python version
+And only use one hashtable 
+
+#Definition for singly-linked list with a random pointer.
+# class RandomListNode:
+
+class Solution:
+
+	# @param head: A RandomListNode
+	# @return : A RandomListNode
+
+	def copyRandomList(self, head):
+
+		dummy = RandomListNode(0)
+		curNOde = dummy
+		hash_map = {}
+
+		while head is not None:
+
+			#link newNode to new List
+
+			if head in hash_map.keys():
+
+				newNode = hash_map[head]
+
+			else:
+				newNode = RandomListNode(head.label)
+				hash_map[head] = newNode
+
+			curNode.next = newNode
+
+			# map old node head to newNode
+
+			hash_map[head] = newNode
+
+			#copy old node random pointer
+
+			if head.random is not None:
+
+				if head.random in hash_map.keys():
+
+					newNode.random = hash_map[head.random]
+
+				else:
+
+					newNOde.random = RandomListNode(head.random.label)
+					hash_map[head.random] = newNode.random
+			#
+			head = head.next
+			curNode = curNode.next
+
+		return dummy.next
+
+
