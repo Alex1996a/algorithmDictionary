@@ -1,0 +1,31 @@
+Insertion Sort List
+
+Sort a linked list using insertion sort
+
+
+Python version
+
+class Solution:
+	"""
+	@param head:
+
+	@return :
+
+	def insertionSortList(self, head):
+
+		dummy = ListNode(0)
+
+		cur = head 
+
+		while cur is not None:
+
+			pre = dummy 
+	
+			while pre.next is not None and pre.next.val < cur.val:
+
+				pre = pre.next
+				temp = cur.next
+				cur.next = pre.next
+				cur = temp
+			return dummy.next
+
