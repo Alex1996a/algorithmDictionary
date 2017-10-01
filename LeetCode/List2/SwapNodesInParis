@@ -1,0 +1,39 @@
+lintcdoe 451 Swap Nodes in Pairs 
+Given a linked list, swap every two adjacent nodes and return its head.
+
+Java :
+
+public class Solution {
+	/*
+
+	*/
+
+	public ListNode swapPairs(ListNOde head) {
+
+		ListNode dummy = new ListNode(0);
+		dummy.next = head;
+		ListNode prev = dummy, curr = head;
+
+		while (curr != null && curr.next != null){
+
+			ListNode after = curr.next;
+			ListNOde nextCurr = after.next;
+			after.next = curr;
+			curr.next = nextCurr;
+
+			// link new node after prev
+
+			prev.next = after;
+
+			// qudate prev and curr 
+
+			prev = curr;
+			curr = nextCurr;
+
+		}
+		return dummy.next;
+	}
+}
+
+
+
