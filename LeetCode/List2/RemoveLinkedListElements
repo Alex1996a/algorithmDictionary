@@ -1,0 +1,27 @@
+Remopve all elements from a linked list of integers that have value val.
+
+Python 
+
+class Solution(object):
+	def removeElements(self, head, val):
+
+		"""
+		: type head: ListNode 
+		: type val int 
+		: rtype: ListNode
+		"""
+
+		dummy = ListNode(0)
+		dummy.next = head
+		curr = dummy
+
+		while curr.next is not None:
+
+			if curr.next.val ==val
+				curr.next = curr.next.next
+
+			else:
+				curr = curr.next
+
+		return dummy.next
+
