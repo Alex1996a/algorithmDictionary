@@ -1,0 +1,41 @@
+iterating!
+version 2  , try it 
+
+Python version
+
+# definition for a binary tree node . 
+# class TreeNode:
+#	def __init__(self, xs):
+		self.val = x
+		self.left = None
+		self.right = None
+
+class Solution:
+	# @param {TreeNode} root
+
+	# @return {interger[]}
+
+	def preorderTraversal(self, root):
+
+		if root is None:
+			return []
+
+		result = []
+		s = [] 
+		s.append(root)
+
+		while s:
+
+			root = s.pop()
+			result.append(root.val)
+
+			if root.right is not None:
+
+				s.append(root.right)
+
+			if root.left is not None:
+
+				s.append(root.left)
+
+		return result
+

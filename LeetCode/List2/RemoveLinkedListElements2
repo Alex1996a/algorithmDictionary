@@ -1,0 +1,41 @@
+Java version 
+
+defition for singly-linked list.
+
+*public class ListNode{
+*public class ListNOde {
+*	int val;
+*	ListNode next;
+*	ListNode(int x) { val = x;}
+
+public class Solution {
+
+/**
+* @param head a ListNode 
+* @param val an integer
+* @return a ListNOde 
+
+	public ListNOde removeElements(ListNode head, int val){
+
+		ListNOde dummy = new ListNode(0);
+		dummy.next = head;
+		ListNode curr = dummy;
+
+		while (curr.next != null){
+
+			if (curr.next.val == val){
+
+				curr.next = curr.next.next;
+			}
+			else
+			{
+
+				curr = curr.next;
+			}
+		}
+		
+
+		return dummy.next;
+	}
+}
+

@@ -1,0 +1,32 @@
+10-4
+
+Given a binary tree, return the preorder traversal of its nodes's values
+
+can you do it without recursion 
+
+Divide and conqueer 
+
+"""
+Definition of TreeNode:
+class TreeNode:
+"""
+	def __init__(self, val):
+
+		self.val = val
+		self.left, self.right = None, None
+"""	
+
+class Soluiton:
+
+	"""
+	@param root : the root of binary tree.
+	@return: Preorder in ArrayList which contains node values.
+	"""
+
+	def preorderTraversal(self, root):
+		if root == None:
+			return []
+
+		return [root.val] + self.preorderTraversal(root.left) \
+						  + self.preorderTraversal(root.right)
+
