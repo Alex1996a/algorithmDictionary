@@ -1,0 +1,23 @@
+Given a binary tree, return the inorder traversal of its noddes's values
+
+Given binary tree 
+
+Can you do it without recursion ?
+
+
+Python version
+
+class Solution:
+
+	def inorderTraversal(self, root):
+	
+		if root is None:
+			
+			return []
+
+		else:
+		
+			return [root.val] + self.inorderTraversal(root.left) \
+							  + self.inorderTraversal(root.right)
+
+

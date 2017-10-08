@@ -1,0 +1,46 @@
+10-8
+
+* Definition of TreeNode:
+* class TreeNode {
+* public:
+*	int val;
+*	TreeNode *left, *right;
+*	TreeNOde(int val){
+*		this->val = val;
+*		this->left = this->right = null;
+*		}
+
+class Solution{
+pbulic:
+	/**
+	* @param root: the root of binary tree;
+	* @return: Preorder in vector which contains node values
+
+	*/
+
+	vector<int> preorderTraversal(TreeNode *root){
+		vector<int> result;
+		
+		if (root == null ) return result;
+
+		stack<TreeNode *> s;
+
+		s.push(root);
+		while (!empty()) {
+
+			TreeNode *node = s.top();
+			s.pop();
+			result.push_back(node->val);
+			
+			if (node->right != null ){
+
+				s.push(node->right);
+			}
+
+			if (node->left != null){
+
+				s.push(node->left);
+			}
+	}
+
+		
