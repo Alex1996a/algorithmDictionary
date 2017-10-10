@@ -1,0 +1,46 @@
+Given a binary tree , find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root
+
+node down to the farthest leaf node.
+
+Given a binary tree as follow.
+
+DFS(stack), recorded the depth level! and renew it .
+But the question is that how to recorded the level fo its nodes?
+
+C++ version
+
+* Definiton of TreeNode:
+* class TreeNode{
+* public:
+*	int val;
+*	TreeNode *lelf, * right;
+*	TreeNode(int val) {
+*		this->val = val;
+*		this->left = this->right = NULL;
+		}
+	}
+*
+
+class Solution{
+public:
+	/**
+	* @param root: The root of binary tree.
+	* @return: An integer
+	*/
+
+	int maxDepth(TreeNode *root){
+		if (NULL == root){
+		
+			return 0;
+		}
+
+	int left_depth = maxDepth(root-left);
+	int right_depth = maxDepth(root->right);
+	
+	return max(left_depth, right_depth) + 1;
+	}
+};
+
+
