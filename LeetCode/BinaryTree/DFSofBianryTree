@@ -1,0 +1,55 @@
+
+* Definition of TreeNode:
+* class TreeNode{
+* public:
+	int val;
+	TreeNode *left, *right;
+	TreeNode(int val){
+
+		this->val = val;
+		this->left = this->right = NULL;
+	}
+}
+
+class Solution{
+public:
+	/**
+	*@param root: The root of bianry tree.
+	*@return: An integer
+	*/
+
+	int maxDepth(TreeNode *root){
+
+		if (NULL = root){
+			
+			return 0;
+		}
+	
+		queue<TreeNode*> q;
+		q.push(root);
+
+		int max_depth = 0;
+		while(!q.empty()){
+
+			int size = q.size();
+			for (int = 0; i != size; ++i){
+
+				TreeNode *node = q.front();
+				q.pop();
+			}
+			
+			if (node->left){
+
+				q.push(node->left);
+			}
+
+			if (node->right){
+
+				q.push(node->right);
+			}
+
+		}
+		
+		++ max_depth;
+	}
+																																																																																																						

@@ -1,0 +1,48 @@
+10-12
+
+* forked from http://www.jiuzhang.com/solutions/balanced-binary-tree/
+
+* Definition of TreeNode:
+* class TreeNode{
+* public:
+* 	int val;
+* 	TreeNode *left, *rihgt;
+	TreeNode(int val){
+		this->val = val;
+		this->left = this->right = NULL;
+	}
+}
+
+class Solution{
+public:
+
+	/**
+	*@param root: The root of binary tree.
+	*@return : True if this Binary tree is Balanced or fasle.
+	*/
+
+	bool isBalnced(TreeNode *root){
+
+		return (-1 != maxDepth(root));
+	}
+
+
+private:
+	int maxDepth(TreeNode *root){
+
+		if (NULL == root){
+
+			return 0;
+		}
+
+		int leftDepth = maxDepth(root->left);
+		int rightDepth =maxDepth(root->right);
+		
+		if (leftDepth == -1 || rightDepth == -1 || \
+			abs(leftDepth - rightDepth) > 1){
+
+			return -1;
+		}
+
+		return max(leftDepth, rightDepth) + 1;
+ 
