@@ -1,0 +1,53 @@
+10-14
+
+java version 
+
+* Definition for a binary tree node.
+* public class TreeNode{
+*	int val;
+*	TreeNode left;
+*	TreeNode(int x) { val = x;}
+*}
+
+
+
+class Result {
+
+	int singlePath, maxPath;
+
+	Result(int singlePath, int maxPath){
+		
+		this.singlePath = singlePath;
+		this.maxpath = maxPath;
+	}
+}
+
+public class Solution {
+
+	public int maxPathSum(TreeNode root){
+
+		return helper(root).maxPath;
+	}
+	
+	private Result helper(TreeNode root){
+
+		if (root == null){
+			// maxPath should be MIN_VALUE to a void negtive 
+
+			return new Result(0, Integer.MIN_VALUE);
+		}
+
+		Result left = helper(root.left);
+		Result right = helper(root.right);
+
+		int singlePath = Math.max(left.singlePath, right.singlePath) + root.val;
+		singlePath = Math.max(0, singlePath); // drop negtive
+
+		int maxPath = Math.max(left.maxPath, right.maxPath);
+		maxPath = Math.max(maxPath, root.val + left.singlePath + right.singlePaht);
+
+		return new Result(singlePath, maxPaht);
+	}
+}
+
+ 
