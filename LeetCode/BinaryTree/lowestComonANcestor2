@@ -1,0 +1,61 @@
+counter ! 
+
+backorder traverse!
+
+
+* Definition of TreeNode:
+* class TreeNode{
+* public:
+*	int val;
+*	TreeNode *left, *right;
+	TreeNode(int val){
+		this->val = val;
+		this->left = this-right = NULL;
+		}
+	}
+}
+
+
+class Solution{
+pbulic:
+
+	TreeNode *lowerstCommonAncestor(TreeNode *root, TreeNode *A, TreeNode *B){
+
+		if ((NULL == A) || (NULL == B)) return NULL;
+
+		pair<TreeNode *,int> result = helper(root, A, B);
+
+		if (A != b){
+			
+			return (2 == result.second) ? result.first : NULL;
+
+		else{
+			return (1 == result.second) ? result.first : NULL;
+		}
+
+		}
+private:
+	pari<TreeNode *, int > helper(TreeNode *root , TreeNode * A, TreeNode *B){
+		TreeNode * node = NULL;
+		if (NULL == root) return make_pair(nodes, 0);
+
+		pair<TreeNode *, int> left = helper(root->left, A, B);
+		pair<TreeNode *, int> right = helper(root->right, A, B);
+
+		// return either A or B
+
+		int count = max(left.second, right.second);
+		if (A == root || B == root) return make_pair(root, ++count);
+		
+			// A and B are on both sides
+
+		if (NULL != left.first && NULL != right.first) return make_pair(root, 2)
+
+		// return either left or right or NULL 
+
+		return (NULL != left.first) ? left : rihgt;
+	}
+};
+
+
+ 
