@@ -53,4 +53,182 @@ public:
 		return helper(root).second;
 	}
 };
- 
+
+Binary Tree Preorder Traversal 
+lintcode 66 Binary Tree Preorder Traversal .....
+
+
+Divide and Conquer
+
+
+* Definition of TreeNode:
+* class TreeNode:
+* 	def __init__(self, val):
+		self.val = val
+		self.left, self.right = None, None
+"""
+
+class Solution:
+	"""
+	@param root: The root of binary tree.
+	@return: Preoder in ArrayList which contains node values.
+	
+	"""
+
+	def preorderTraversal(self, root):
+
+		if root == None:
+			return []
+
+		return [root.val] + self.preorderTraversal(root.left) \
+						  + self.preorderTraversal(root.right)
+
+
+
+iteraing
+
+class Solution:
+	# @param {TreeNode} root
+	# @return {integer[]}
+	def preorderTraversal(self, root):
+		if root is None:
+			return []
+
+	result = []
+	s = []
+	s.append(root)
+
+	while s:
+		root = s.pop()
+		result.append(root.val)
+
+		if root.right is not None:
+			s.append(root.right)
+		if root.left is not None:
+			s.append(root.left)
+		
+	return result
+
+BinaryTreeInorderTraversal 
+
+
+Definiton of TreeNode:
+
+class TreeNOde:
+	def __init__(self, val):
+			this.val = val
+			this.left, this.right = None, None
+"""
+
+class Solution:
+	"""
+	
+	"""
+
+	def inorderTraversal(self, root):
+		if root is None:
+			return []
+
+		else:
+			return self.postorderTraversal(root.left) +\ 
+					self.postorderTraversal(root.right) + [root.val]
+
+
+
+postorderTraversal In  python 
+
+class Solution:
+	#@param {TreeNode} root 
+	#@return {integer[]}
+
+	def postorderTraversal(self, root):
+		result = []
+		if root is None:
+			return result
+		s = []
+
+		#previously traversed node
+		
+		prev = None
+		s.append(root)
+
+		while s:
+			
+			curr = s[-1]
+			noChild = curr.left is None and curr.right is None
+			
+			childVisited = (prev is not None) and \ (curr.left == prev or \
+							curr.right == prev)
+			
+			if noChild or childVIsited:
+				result.append(curr.val)
+				s.pop()
+				prev = curr
+			else:
+				if curr.right is not None:
+					s.append(curr.right)
+				if curr.left is not None:
+					s.append(curr.left)
+		return result
+
+Binary Tree Level Order Traversal
+
+challenge 1: Using only 1 queue to implement it .
+challenge 2: Use DFS algorithm to do it 
+
+* Definition of TreeNode:
+* class TreeNode{
+* public:
+	int val;
+	TreeNode *left, *right;
+	TreeNode(int val){
+		this->val = val;
+		this->left = this->right =NULL;
+	}
+}
+
+class Solution{
+	/** 
+	*@param root: The root of bianry tree.
+	*@return: Level order a list of lists of integer
+public:
+
+	vector<vector<int>> levelOrder(TreeNode *root)
+	{
+		vector<vrctor<int>  > result;
+
+		if (NULL == root){
+		
+			retrun result;
+		}
+
+		queue<TreeNode *> q;
+		q.push(root);
+
+		while(!q.empty()){
+
+			vector<int> list;
+			int size = q.size();// keep the queue size first
+
+			for (int i = 0; i != size; ++i){
+
+				TreeNode *node =q.front();
+				q.pop();
+				list.push_back(node->val);
+			
+				if (node->left){
+			
+					q.push(node->left);
+				}
+				if (node->right){
+					q.push(node->right);
+				}
+			}
+			
+			result.push_back(list);
+		}
+		return result;
+	}
+};
+
+
