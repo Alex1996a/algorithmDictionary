@@ -231,4 +231,58 @@ public:
 	}
 };
 
+invert Binary Tree
 
+return TreeNode * 
+
+* Definition for a binary tree node.
+* struct TreeNode {
+*	int val;
+*	TreeNode *left;
+*	TreeNode *right;
+*	TreeNode(int x) : val(x), left(NULL), right(NULL){}
+*}
+*}
+class Solution
+public:
+	TreeNode* invertTree(TreeNode* root){
+		if (root == NULL ) return NULL;
+
+		TreeNode *temp = root->left;
+		root->left = invertTree(root->right);
+		root->right = inverTree(temp);
+	
+		return root;
+		}
+};
+
+class Solution{
+public:
+	/**
+	* @param root: a TreeNode , the root of the binary tree
+	* @return: nothing
+	*/
+	void invertBinaryTree(TreeNode *root){
+		if (root == NULL ) return ;
+		
+		queue<TreeNode*> q;
+		q.push(root);
+		
+		while(!q.empty()){
+
+			// pop out the front node 
+			TreeNode *node = q.front()
+			q.pop();
+			// swap between left and right pointer 
+		
+			swap(node->left, node->right);
+			// push non-NULL node
+
+			if (node->left != NULL) q.push(node->left);
+
+			if (node->right != NULL) q.push(node->right);
+		}
+	}
+};
+
+ 

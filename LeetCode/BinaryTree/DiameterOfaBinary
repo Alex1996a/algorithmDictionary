@@ -1,0 +1,60 @@
+10-17
+
+the diameter of a tree(somtimes called the width ) is the number of nodes
+
+on the longese path between two leaves in the tree.
+
+diameter , througt root
+diameter, not through root 
+
+JAVA version 
+
+class TreeNode{
+	int val;
+	TreeNode left, right;
+	TreeNode(int val){
+
+		this.val = val;
+		this.left = null;
+		this.right = null;
+	}
+}
+
+public class Solution{
+	public int diameter(TreeNode root){
+		if (root == null) return 0;
+
+		// left , right height 
+		int leftHight = getHeight(root.left);
+		int rightHight = getHeight(root.right);
+
+		// left, right subtree diameter
+
+		int leftDia = diameter(root.left);
+		int rightDia = diameter(root.right);
+	
+		int maxSubDia = Math.max(leftDia, rightDia);
+		
+		return Math.max(maxSubDia, leftHight + 1 + rightHight);
+		}
+
+	pirvate int getHeight(TreeNode root){
+		if (root == null) return 0;
+		
+		return 1 + Math.max(getHeight(root.left), getHeight(root.right));
+	}
+
+	public static void main(String[] args){
+
+		TreeNode root = new TreeNode(1);
+		root.left = new TreeNode(2);
+		root.right = new TreeNode(3);
+	
+		Solution sol = new Solution();
+		int maxDistance = sol.diameter(root);
+	
+		System.out.printLn("Max Distance:" + maxDistance);
+	}
+}
+	
+	
