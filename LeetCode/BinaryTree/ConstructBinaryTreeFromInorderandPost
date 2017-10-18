@@ -1,0 +1,69 @@
+Construct Binary Tree from Inorder and 
+Postorder Traversal 
+10-18
+
+Given inorder and Postorder traversal of a tree, construct the binary tree.
+
+Java version 
+
+* Definition of TreeNode:
+* public class TreeNode {
+*	public int val;
+	public TreeNode left, right;
+	public TreeNode(int val) {
+		this.val = val;
+		this.left = this.right = null;
+	}
+
+}
+
+public class Solution{
+
+	public TreeNode buildTree(int[] inorder, int[] postorder){
+	
+		if (inorder == null || postorder == null) return null;
+
+		if (inorder.length == 0 || postorder.length == 0) return null;
+
+		if (inorder.length != postorder.length == 0) return null;
+
+		TreeNode root = helper(inorder, 0, inorder.length -1, 
+								postorder, 0, postorder.length -1);
+
+		return root;
+		}
+
+	private TreeNode helper(int[] inorder, int instart , int inend, 
+							int[] postorder, int poststart, int postend){
+
+		// corner cases 
+		if (instart > inend || poststart > postend) return null;
+		
+		// build root TreeNode
+		int root_val = postorder[postend];
+		TreeNode root = new TreeNode(root_val);
+		
+		// find index of root_val in inorder[]
+		int index = findIndex(inorder, instart, inend, root_val);
+		
+		// buil left subtree
+
+		root.left = helper(inorder, instart, index -1, 
+							postorder, poststart, poststart +index -instart-1);
+
+		//build right subtree
+
+		root.right = helper(inorder, index + 1, inend, 
+							postorder, poststart + index
+							- instart , postend - 1);
+			return root;
+		}
+
+		private in findIndex(int[] nums, int start, int end, int target){
+
+			for (int i = start; i <= end; i++){
+				if (nums[i] == target) return i;
+			}
+			return -1;
+		}
+} 
