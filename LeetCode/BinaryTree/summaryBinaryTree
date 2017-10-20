@@ -322,3 +322,77 @@ public class Solution{
 	}
 }
   
+
+
+
+
+Binary Tree Zigzag Level Order Traversal
+
+
+Given a bianry tree , return the zigzag level order traversal of its nodes' values
+
+
+
+Java version:
+
+* Definition of TreeNode:
+* public class TreeNode
+* 	public int val;
+	public TreeNode left, right;
+	public TreeNode(int val){
+		this.val = val
+		this.left = this.right = null;
+	}
+}
+
+public class Solution{
+	/**
+	* @param root : The root of binary tree.
+	* @return: A list of lists of integer include 
+	* the zigzag level order traverfsal of its nodes' values
+	
+	public ArrayList<ArrayList<Integer>> zigzagLevelOrder(TreeNode root){
+
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+
+		if (root == null) return result ;
+		
+		boolean odd = true;
+
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(root);
+		while (! q.isEmpty()){
+
+			// level traversal 
+			int qLen = q.size();
+		
+			ArrayList<Integer> level = new ArrayList<integer();
+
+			for (int i = 0 ; i < qLen; i++) {
+
+				TreeNode node = q.poll();
+				level.add(node.val);		
+				
+				if (node.left != null) q.offer(node.left);
+
+				if (node.right != null) q.offer(node.right);
+			}
+
+			if (odd){
+
+				resul.add(level);
+			}
+			else{
+		
+				Collections.reverse(level);
+				result.add(level);
+			}
+
+			// flip odd and even 
+			
+			odd = !odd;
+		}
+		
+		return result;
+	}
+} 
