@@ -1,0 +1,57 @@
+Problem Statement
+
+Given two values k1 and k2 (where k1 < k2) and a root pointer to a bianry
+
+Search tree . Find all the keys of tree in range k1 to k2 ie 
+
+
+* Definition of TreeNode:
+* class TreeNode {
+* public: 
+* 	int val;
+* 	TreeNode *left, *right;
+*	TreeNode(int val){
+		
+		this->val = val;
+		this->left = this-right = NULL;
+}
+
+class Solution{
+
+public:
+	/**
+	* @param root: the root of the binary search tree.
+
+	*
+	//
+
+	vector<int> searchRange(TreeNode* root, int k1, int k2){
+
+		vector<int> result;
+		inorder_dfs(result, root, k1, k2);
+	
+		return result;
+	}
+
+private:
+	
+	void inorder_dfs(vector<int> &ret, TreeNode *root, int k1, int k2){
+
+		if (NULL == root){
+
+				return ;
+		}
+
+		inorder_dfs(ret, root->left, k1, k2);
+
+		inorder_dfs(ret, root->left, k1, k2);
+
+		if ((root->val >= k1) && (root->val <= k2)){
+
+			ret.push_back(root->val);
+
+		}
+
+		inorder_dfs(ret, root->right, k1, k2);
+	}
+};

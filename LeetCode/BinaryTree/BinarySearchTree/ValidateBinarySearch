@@ -1,0 +1,59 @@
+lintcode 95 Validate Binary Search Tree
+
+Given a binary tree, determine if it is a valid binary search tree (BS)
+
+Assum a BST is defined as follows:
+
+the left subtree of a node contains noly nodes with less than the node's key.
+
+Both the left and right subtrees must also be binary search trees..
+Example:
+
+An example:
+
+The above bianry tree is serialized as " " 
+
+Recursion:
+
+C++ long long 
+
+* Definition of TreeNode:
+* class TreeNode {
+* public:
+*	int val;
+*	TreeNode *left, *right;
+*	TreeNode(int val){
+*		
+*		this->val = val;
+* 		this->left =this->right = NULL;
+*}
+}
+
+class Solution{
+
+public:
+	/**
+	*@param root : The root of binary tree.
+	*@return: True if the bianry tree is BST or false
+	*/
+	
+	bool isValidBST(TreeNode *root){
+
+		if (root == null) return true;
+
+			return helper(root, LLONG_MIN, LLONG_MAX);
+		}
+
+	bool helper(TreeNode *root, long long lower, long long upper){
+
+		if (root == NULL) return true;
+		
+		if (root->val <= lower || root->val >= upper) return false;
+	
+		bool isLeftValidBST = helper(root->left, lower, root->val);
+		bool isRightValidBST = helper(root->right, root->val, upper);
+		
+		return isLeftValidBST && isRightValidBST;
+	}
+
+
