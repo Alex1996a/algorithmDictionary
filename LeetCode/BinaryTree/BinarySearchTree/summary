@@ -1,0 +1,202 @@
+JAVA Version
+
+Recursion
+
+public class Solution {
+
+	/**
+	* @param
+	* @Parm node 
+	* @return :
+
+	*/
+
+	public TreeNode insertNode(TreeNdoe root, TreeNode node){
+
+		if (root == null){
+
+			return node;
+		}	
+	
+		if (root.val > node.val){
+
+			root.left = insertNode(root.left, node);
+		}
+		else {
+	
+			root.right = insertNode(root.right, node);
+		}
+
+		return root;
+
+	}
+}
+
+
+Java Iterative  
+
+public class Solution{
+
+	/**
+	* @param root:
+	*/
+
+	public TreeNode insertNode(Tree root, TreeNode node){
+
+		// write your code here 
+		if (root == null ) return node;
+		if (node == null ) return  root;
+
+		TreeNode rootcody = root;
+		
+		while (root != null){
+
+			if (root.val <= node.val && root.right == null){
+
+				root.right = node;
+				break;
+
+			}
+			
+			else if (root.val > node.val && root.left == null){
+
+				root.left = node;
+				break;
+
+			}
+
+			else if (root.vla <= node.val) root = root.right;
+
+			else root = root.left;
+		}
+
+		return rootcopy;
+
+	}
+}
+
+
+Validate Binary Search Tree 
+
+
+GIven a binary tree, determine if it is  a valid binary search tree.
+
+
+* Definition of TreeNode:
+* class TreeNode {
+* public:
+* 	int val;
+* 	TreeNode *left, *right;
+*	TreeNode(int val){
+
+		this->val = val;
+		this->left =this->right = NULL;
+	}
+}
+
+class Solution {
+
+public:
+	/**
+	* @param root : The root of binary tree.
+	* @return: True if the binary tree is BST , or false
+	*/
+
+	bool isValidBST(TreeNode *root){
+
+		if (root == null) return true;
+		
+		return helper(root, LLONG_MIN, LLONG_MAX);
+	}
+
+	bool helper(TreeNode *root, long long lower, long long upper){
+
+		if (root == NULL) return true;
+		
+		if (root->val <= lower || root->val >= upper) return false;
+
+		bool isLeeftValidBST = helper(root->left, lower, root->val);
+		bool isRightValidBST = helper(root->right, root->val, upper);
+
+		return isLeftValidBST && isRightValidBST;
+
+	}
+};
+
+
+
+Search Range in Binary Search Tree
+
+JAVA version 
+
+* Definition of TreeNode:
+* public class TreeNode{
+	public int val;
+	public TreeNode left, right;
+	public TreeNode(int val){
+
+		this.val = val;
+		this.left = this.right = null;
+	}
+
+*
+
+public class Solution {
+
+	/**
+	*@param root: The root of the bianry search tree.
+	*@param k1 and k2 : range k1 to k2.
+	*/
+
+	public ArrayList<Integer> searchRange(TreeNode root, int k1, int k2){
+
+		ArrayList<Interger> result = new ArrayList<Integer>();
+	
+		helper(root, k1, k2, result);
+		return result;
+	}
+
+	private void helper(TreeNode root, int k1, int k2, 
+						ArrayList<Interger> result){
+
+		if (root == null) return ;
+		//in-order binary tree iteration
+
+		helper(root.left, k1, k2, result);
+		if (k1 <= root.val && root.val <= k2){
+
+			result.add(root.val);
+		}
+		helper(roor.right, k1, k2, result);
+	}
+}
+
+imporv it a little bit 
+
+void inorder_dfs(vector<int> &ret, TreeNode *root, int k1, int k2){
+
+	if (NULL == root){
+
+		return ;
+	}
+
+	if ((NULL != root->left) && (root->val > k1)){
+
+		inorder_dfs(ret, root->left, k1, k2);
+		// cur-off for left sub tree
+	}
+
+	if ((root->val >= k1) && (root->val <= k2)){
+
+		ret.push_back(root->val);
+		//add valid value
+	}
+	
+	if ((NULL != root->right) && (root->val < k2)){
+
+		inorder_dfs(ret, root->right, k1, k2);
+		// cut-off for right sub tree
+	}
+}
+
+
