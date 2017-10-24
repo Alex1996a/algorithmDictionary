@@ -199,4 +199,126 @@ void inorder_dfs(vector<int> &ret, TreeNode *root, int k1, int k2){
 	}
 }
 
+Convert Sorted Array to Binary Search Tree
 
+* Deifintion for binary Tree
+* struct TreeNode {
+* 	int val;
+* 	TreeNode *left;
+* 	TreeNOde *right;
+* 	TreeNode(int x): val(x), left(NULL), right(NULL) {}
+*};
+
+class Solution{
+public:
+	TreeNode *sortedArrayToBST(vector<int> &num){
+
+		if (num.empty()) {
+		
+			return NULL:
+		}
+
+		return middleNode(num, 0, num.size() -1);
+	}
+
+private:
+
+	TreeNode *middleNode(vecotor<int> &num, const int start, const int end){
+	
+		if (start > end){
+
+			return NULL;
+		}
+
+		TreeNode *root = new TreeNode(num[start + (end - start) /2]);
+
+		root->left = middleNode(num, start, start + (end -start) / 2 -1);
+	
+		root-right = middleNode(num, start + (end - start) / 2 + 1, end);
+		
+		return root;
+	}
+
+};
+
+
+Convert Sorted List to Binary Search Tree 
+
+* Definition of ListNode
+* class ListNode{
+* public:
+* 	int val;
+* 	ListNode *next;
+* 	ListNode(int val){
+* 	
+* 		this->val = val;
+* 		this->next = NULL;
+* 	}
+*}
+
+* Definition of TreeNode:
+* class TreeNode {
+* public:
+* 	int val;
+* 	TreeNode *left, *right;
+* 	TreeNode(int val){
+*		this->val = val;
+*		this->left = this->right = NULL;
+* 		}
+*	}
+
+
+class Solution {
+public:
+	/**
+	*@param head: The first node of linked list.
+	*@return: a tree node 
+
+	TreeNode *sortedListToBST(ListNode *head)
+{
+	if (NULL == head){
+
+		return NULL;
+	}
+	// get the size of List
+	ListNode *node = head;
+	int len = 0;
+	
+	while (NULL != node){
+
+		node = node->next;
+		++len;
+	}
+
+	return buildBSTHelper(head, len):
+
+	}
+
+private:
+
+	TreeNode *buildBSTHelper(ListNode *head, int length){
+
+		if (NULL == head || length <= 0){
+
+			return NULL;
+		}
+
+		// get the middle ListNode as root TreeNode
+
+		ListNode *lnode = head;
+		int count = 0;
+		
+		while (count < length / 2){
+
+			lnode = lnode->next
+			++count;
+		}
+
+		TreeNode *root = new TreeNode(lnode->val);
+
+		root->left = buildBSTHelper(head, length / 2);
+		root->right = buildBSTHelper(lnode->next, length - 1 - length / 2);
+
+		return root;
+	}
+};	
