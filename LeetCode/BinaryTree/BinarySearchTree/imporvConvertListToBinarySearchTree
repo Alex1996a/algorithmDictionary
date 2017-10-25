@@ -1,0 +1,42 @@
+10-25
+
+class Solution{
+public :
+	TreeNOde *sortedListTOBST(ListNode *head)
+{
+
+	int length = 0;
+	ListNode *curr = head;
+	
+	while (curr != NULL){
+
+		curr = curr->next;
+		++length;
+	}
+
+	return heler(head, length);
+	}
+
+private:
+
+	TreeNode *helper(ListNode *&pos, int length){
+
+		if (length <= 0){
+
+			return NULL;
+		}
+
+		TreeNode *left = helper(pos, length / 2);
+
+		TreeNode *root = new TreeNode(pos->val);//the sequence cannot be changed !
+
+		// this is important difference of the solution above
+
+		pos = pos->next;
+		root->left = left;
+		root->right = helper(pos, length - length / 2 -1);
+
+		return root;
+
+	}
+};

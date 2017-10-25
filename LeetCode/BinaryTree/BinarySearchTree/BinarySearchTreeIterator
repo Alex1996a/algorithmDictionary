@@ -1,0 +1,70 @@
+lintcode 86 Binary Search Tree Itertor
+
+Design an iterator over a binary search tree with the following rules:
+
+-Elements are visited in ascending order(i.e. an in-order traversal )
+-next() and hasNext)() queries run in O(1) time in average.
+
+Example 
+
+/**
+* Definition of TreeNode:
+* public class TreeNode{
+* 	public int val;
+	public TreeNode left, right;
+	public TreeNode(int val){
+
+		this.val = val;
+		this.left = this.right = null;
+	}
+
+}
+
+* Example of iterate a tree:
+* solution iterator = new Solutin (root);
+* while (iterator.hasNext()){
+	
+	TreeNode node = iterator.next();
+	do something for node
+}
+*/.
+
+
+public class Solution{
+
+	private Stack<TreeNode > Stack = new Stack<>();
+	private TreeNode curt;
+
+	// @param root: The root of binary tree.
+	public Solution(TreeNode root){
+
+		curt = root;
+	}
+
+	//@return: True if there has next node , or false 
+
+	public boolenan hasNext(){
+
+		return (curt != null || !stack.isEmpty()));
+		// important to judge curt != null
+
+	}
+
+	//@return : return next node
+
+	public TreeNoede next(){
+
+		while (curt != null){
+
+			stack.push(curt);
+			curt = curt.left;
+		}
+
+		curt = stack.pop();
+		TreeNode node = curt;
+		curt = curt.right;
+		
+		return node;
+	}
+}
+	
