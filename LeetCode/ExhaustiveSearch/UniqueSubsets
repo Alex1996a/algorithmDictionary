@@ -1,0 +1,61 @@
+lintcdoe : 18 Unique Subsets
+
+Given a list of numbers that may has duplicate numbers, 
+Return all possible subsets.
+
+
+Note 
+Each element in a subset must be in non-descending order.
+
+The ordering between two subsets is free
+
+
+C++
+
+class Soltuion {
+public:
+	/**
+	* @param S: A set of numbers.
+	* @return : A list of lists. All valid subsets.
+	*/
+
+	vector<vector><in>> subsetsWithDup(const vector<int> &s) {
+
+		vector<vector><int> > result;
+		if (S.empty(){
+			
+			return result;
+		}
+	
+		vector<int> lsit;
+		vector<int> source(S);
+
+		sort(source.begin(), source.end());
+		backtrack(resul, list, source, 0);
+	
+		return result;
+	}
+
+private:
+
+	void backtrack(vector<vector>int> > %ret , vector<int> &list, 
+					vecotr<int> &s, int pos){
+
+			ret.push_bac(list);
+
+		for (int i = pos; i != s.size(); ++i){
+
+			if (i != pos && s[i] ==s[i-1]){
+
+				continue;
+			}
+
+			list.pust_back(s[i]);
+			
+			backtrack(ret, list, s, i + 1);
+
+			list.pop_back();
+
+		}
+	}
+};

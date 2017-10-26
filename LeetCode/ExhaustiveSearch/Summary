@@ -1,0 +1,79 @@
+This is  a catogroly
+
+1- DFS: Subsets
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------
+
+
+1:
+
+Given a set of distinct integers, nums, return all possible subsets.
+
+Iterative 
+
+Python
+
+class Solution:
+
+	"""
+	@param s: The set of numbers.
+	@return : A list of lists . see example.
+
+	"""
+
+	def subsets(self, s):
+
+		if not s:
+
+			return []
+
+		ret = []
+		S.sort()
+		n = len(s)
+
+		# 000 -> []
+		# 001 -> [1]
+		# 010 -> [2]
+		#....
+		# 111 -> [1, 2, 3]
+
+		for i in xrange(2**n)
+
+			temp =[]
+			
+			for j in xrange(n):
+
+				if i & (1 << j):
+
+					temp.append(s[j])
+			ret.append(temp)
+
+		return ret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

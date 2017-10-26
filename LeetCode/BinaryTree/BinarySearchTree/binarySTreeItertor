@@ -1,0 +1,78 @@
+10-26
+
+Design an iterator over a binary search tree with the following rules:
+
+-Elements are visited in ascending order 
+
+-next() and hasNext() queries run in O(1)
+
+C++ version 
+
+* Definition of TreeNode:
+* class TreeNode{
+* public:
+* 	int val;
+* 	TreeNode *left, *right;
+	TreeNode(int val){
+
+		this->val = val;
+		this->left = this->right = NULL;
+	}
+}
+
+* Example of iterate a tree:
+* BSTIterator iterator = BSTITerator(root);
+* while (iterator.hashNext()){
+
+	TreeNode *node = iterator.next();
+	do something for node 
+*/
+
+	class BSTIterator{
+	
+	private:
+
+		stack<TreeNode*> stack_;
+		TreeNode* cur_= NULL;
+
+	public:
+
+		//@param root: The root of binary tree.
+
+		BSTIterator(TreeNOde *root){
+
+			// write your code here
+			cur_ = root;
+		}
+
+		//@return : True if there has next node , or false
+
+		bool hasNext(){
+
+			// write your code here 
+			return (cur_ || !stack_.empty());
+	}
+
+		//@return : return next node
+
+	TreeNode* next(){
+
+		// write your code here
+
+		while (cur_) {
+
+			stack_.push(cur_);
+			cur_ = cur_->left;
+		}
+		
+		cur_ = stack_.top();
+		stack_.pop();
+		TreeNode* node = cur_;
+		cur_ = cur_->right;
+
+		return node;
+	}
+};
+
+
+	
