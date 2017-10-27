@@ -1,0 +1,14 @@
+Given a list of numbers , return all possible permutations
+
+Do it withour recursiong
+
+Recursion (Using subsets template)
+
+list.size() == nums.size()
+
+NOn-repeat element
+
+
+class Solution:
+
+

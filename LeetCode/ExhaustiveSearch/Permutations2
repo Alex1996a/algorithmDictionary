@@ -1,0 +1,54 @@
+Recursion
+
+class Solution:
+
+	# @param {integer[] } nums
+	# @return {integer [][]}
+
+	def permute(self, nums):
+
+		if nums is None:
+
+			return [[]]
+
+		elif len(nums) <= 1:
+
+			return [nums]
+
+		result = []
+		
+		for i, item in enumerate(nums):
+
+			for p in slef.permute(nums[:i] + nums[i +1:]):
+
+				result.append(p + [item])
+
+		return result
+
+
+class Solution2:
+
+	# like subset 
+
+	def permute(self, nums):
+
+		if not nums:
+
+			return []
+		
+		res = []
+		self.helper(sorted(nums), res, [])
+		
+		return res
+
+	del helper(self, nums, res, tmp):
+
+		if not nums:
+		
+			res.append(tmp[:])
+			return 
+		
+		for i, num in enumerate(nums, 1):
+
+			self.helper(num[:i] + nums[i = 1:], res, tmp + [num])
+
