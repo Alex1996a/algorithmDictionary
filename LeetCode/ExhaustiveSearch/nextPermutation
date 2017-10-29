@@ -1,0 +1,23 @@
+leetcode : Next Permutation | LeetCode 
+
+lintCode 52 : Next Permutaion
+
+Given a list of integers, which denote a permutatation
+
+Find the next permutation in ascending order.
+
+The list may contains duplicate integers.
+
+Python 
+class Solution : 
+
+	# @param num : a list of integer
+	# @return : a list of integer 
+
+	def nextPermutation(self,num):
+
+		if num is None or len(num) <= 1:
+
+			return num 
+
+		

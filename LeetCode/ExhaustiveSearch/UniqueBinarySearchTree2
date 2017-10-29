@@ -1,0 +1,47 @@
+Unique Bianry Search Trees 2 || leetCode OJ
+
+Given n, generate all structurallly unique BST's 
+(binary search trees) that store values 1.....n.
+
+simple way to do it.... is 
+
+
+helper(start, end){
+
+	result;
+	if (start > end){
+
+		result.push_back(NULL);
+
+	}
+	else if {start == end){
+
+		result.push_back(TreeNode(i));
+		return ;
+	}
+
+	//dfs
+
+	for (int i = start; i <= end; ++i){
+
+		leftTree = helper(start, i -1);
+		rightTree = helper(i + 1, end);
+
+		// link left and right sub tree to the root i 
+
+		for (j in left Tree) {
+
+			for (k in rightTree){
+
+				root = TreeNode(i);
+				root->left = leftTree[j];
+				root->right = rightTree[k];
+				result.push_back(root);
+			}
+		}
+	}
+
+	return result;
+}
+
+	
