@@ -1,0 +1,60 @@
+lintcode 136 Palindrom Partitiioning
+
+Given a string s, Partition s such that every substring of the 
+partition is a palindrome.
+
+Return all possible palindrom partition of s..
+
+For example , 
+
+
+Python 
+
+class Solution:
+
+	# @param s, a string
+	# @return a list of lists of string
+
+	def partiotion(self, s):
+
+		result = []
+
+		if not s:
+
+			return result
+
+		palindroms = []
+
+		self.dfs(s, 0, palindroms, result)
+
+		return result
+
+	def dfs(self, s, pos, palindromes, ret):
+
+		if pos == len(s):
+
+			ret.append([] + palindroms)
+
+			return
+
+		for i in xrange(pos + 1, len(s) + 1):
+
+			if not self.isPalindrome(s[pos:i])
+
+				continue
+
+			palindromes.append(s[pos:i])
+			self.dfs(s, i, palindroms, ret)
+			palindromes.pop()
+
+
+	def isPalindrom(self, s):
+
+		if not s:
+
+			return False
+
+			#reverse compare
+		return s == s[;;-1]
+
+

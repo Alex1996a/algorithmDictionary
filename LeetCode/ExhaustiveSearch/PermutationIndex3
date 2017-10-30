@@ -1,0 +1,9 @@
+Given a permutation which may contain repeated numbers, find its index in all..
+
+the permutaions of these numbers , whchi are ordered in lexicographical order
+
+The index begins at 1.
+
+
+Given the permuation [1, 4, 2, 2, ] return 3
+
