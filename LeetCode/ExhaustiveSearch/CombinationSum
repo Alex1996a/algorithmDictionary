@@ -1,0 +1,42 @@
+lintcode 135 Combination Sum 
+
+Given a set of candidate numbers (C) and a target number(T)
+
+find all unique combinations in c where ht candidate numbers sums to T.
+
+The same repeated number may be chosen from C unlimited number of times
+
+
+Have you met this question in a real interview?
+Note 
+-All numbers (includeing target) willbe positive integers 
+-Elements in a combination (a1, a2, .., ak) must be in non-descengding order.
+
+
+Java version : 
+
+public class Solution{
+
+	/**
+	* @param candidates:A list of intgers
+	* @param target:An integer
+	* @return A list of lists of integers
+	*/
+
+	public List<List<Integer>> combinationSum(int[] candidates, int target){
+
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+
+		List<Integer> list = new ArrayList<Integer>();
+
+		if (candidates == null) return result;
+
+		Arrays.sort(candidates);
+
+		helper(candidates, i, gap - candidates[i], list,result);
+
+		list.remove(list.size() -1);
+		}
+	}
+}
+

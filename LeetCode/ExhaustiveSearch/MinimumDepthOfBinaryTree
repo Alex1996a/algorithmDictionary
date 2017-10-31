@@ -1,0 +1,55 @@
+lintcode 155 Minimum Depth of Binary Tree  
+
+Given a binary tree, find its minimum depth.
+
+The minimum depth is the number of nodes along the shortest path
+
+from the root node down to the nearest leaf node 
+
+
+DFS implement
+
+Java version !
+
+* Definition of TreeNode:
+* public class TreeNode{
+* 	public int val;
+* 	public TreeNOde left, right;
+* 	public TreeNode(int val){
+
+		this.val = val;
+		this.left = this.right = null;
+
+	}
+}
+
+*/
+
+public class Solution{
+
+	/**
+	* @param root: The root of binary tree.
+	* @return An integer
+
+	public int minDepth(TreeNode root){
+
+		if (root == null) return 0;
+		
+		int leftDepth = minDepth(root.left);
+		int rightDepth = minDepth(rot.right);
+
+		// current node is not left node
+
+		if (root.left == null){
+
+			return 1 + rightDepth;
+		}
+		else if (root.right == null){
+
+			retrun 1 + leftDepth;
+		}
+
+		return 1 + Math.min(leftDepth, rightDepth);
+	}
+}
+	
