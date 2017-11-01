@@ -1,0 +1,45 @@
+Dynamic Programming
+
+From Bottom to TOp
+
+class Solution{
+
+public:
+	/**
+	* @param triangle: list of list of integers.
+	* @return : An integers, minimum path sum .
+	*/
+
+	int minimumTotal(vector<vector><int> > &triangle){
+
+		if (triangle.empty()){
+
+			return -1;
+
+		}
+
+		vector<vector<int> > hashmap(triangle);
+
+		// get the total row number of triangel
+
+		const int N = triangle.size();
+
+		for (int i = 0;i != N; ++i){
+
+
+			hashmap[N-1][i] = triangle[N-1][i];
+	}
+
+		for (int i = N -2; i >= 0; --i){
+
+			for (int j = 0; j < i + 1; ++j){
+
+				hashmap[i][j] = min(hashmap[i + 1][j], hashmap[i + 1][j + 1]
+				+ triangle[i][j]
+			}
+
+		}
+
+		return hashmap[0][0];
+	}
+};

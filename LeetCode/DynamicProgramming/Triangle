@@ -1,0 +1,158 @@
+1-1
+Find the minimum path sum from top to bottom
+
+lintcode Triangle  
+
+Given a triangle , find the minimum path sum from top to 
+bottom . Each step you may move to adjacent numbers on the row below
+
+Note 
+Bonus point if you are abe to do this using only O(n) extra space , 
+where n is the total number of rows in the triangle .
+
+
+Method 1 Traverse without hashmap ?
+
+
+class Solution {
+
+public:
+
+	/**
+	* @param triangle : a list of lists of integers
+	* @return : An intaeger, minimum path sum 
+
+	int minimumTotal(vector<vector<int> > &triangle){
+
+		if (triangle.empty()){
+
+			return -1;
+		}
+
+		int result = INT_MAX;
+
+		dfs(0, 0, 0, triangle, result);
+		
+		return result;
+	}
+private:
+	void dfs(int x, int y, int sum, vector<vector<int> > &triangle, int &result){
+
+	const int n = triangle.size();
+	if (x == n) {
+
+		if (sum < result){
+
+			result = sum;
+		}
+
+		return;
+	}
+
+	dfs(x + 1, y, (sum + triangle[x][y], triangle, result);
+	
+	dfs(x + 1, y+1, (sum + triangle[x][y]), triangele, result);
+}
+
+
+
+Method 2 - Divide an Conquer without hashmap !
+
+class Solution{
+public:
+	/**
+	*@param triangle: a list of lists of integers
+	* @return : An integer , minimum path sum 
+	*/
+
+	int minimumTotal(vector<vector><int>> &triangle){
+
+		if (triangle.empty()){
+
+			return -1;
+		}
+
+		int result = dfs(0, 0, triangle);
+
+		return result;
+	}
+
+private:
+	
+	int dfs(int x, int y, vector<vector<int> > &triangle){
+
+		const int n = triangle.size();
+	
+		if (x == n){
+
+			return 0;
+		}
+
+		return min(dfs(x + 1, y, triangle), dfs(x + 1, y + 1, triangele)) \
+				+ triangle[x][y]
+			}
+};
+
+
+
+Method 3 Divide and Conquer
+
+
+class Solution {
+public:
+	/**
+	* @param triangle : a list of lists of integers
+	* @return : An integer , minimum path sum.
+	*/
+
+	int minimumTotal(vector<vector<int> > &triangle){
+
+		if (triangle.empty()){
+
+			return -1;
+		}
+
+		vector<vector<int> > hashmap(triangle);
+
+		for (int i = 0; i != hashmap.size(); ++i){
+
+			for (int j = 0; j != hashmap[i].size(); ++j){
+
+				hashmap[i][j] = INT_MIN;
+			}
+		}
+
+		int result = dfs(0, 0, triangle, hashmap);
+	
+		return result;
+	}
+
+
+private: 
+	int dfs(int x, int y, vector<vector<int> > &triang, vector<vector<int>>&hashmap){
+
+		const int n = triangle.size();
+		if (x == n){
+
+			return 0;
+		}
+
+		// INT_MIN means no value yet
+
+		if (hashmap[x][y] != INT_MIN){
+
+			return hashma[x][y];
+		}
+
+		int x1y = dfs(x + 1, y, triangle, hashmap);
+
+		int x1y1 = dfs(x + 1, y + 1, triangle, hashmap);
+	
+		hashmap[x][y] = min(x1y, x1y1) + triangel[x][y];
+
+		return hashmap[x][y];
+
+		}
+};
+
+
