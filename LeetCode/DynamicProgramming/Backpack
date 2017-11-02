@@ -1,0 +1,46 @@
+Given  n tiems with size A, an integer m denotes the size of a backpack.
+
+How full you can fill this backpack?
+
+If we have 4 items with size [2, 3, 5, 7], the backpack size is 11 , we can 
+
+You function should return the max size we can fill in the given backpack.
+
+You can not divide any item into small pieces...
+
+public class Solution{
+
+	/**
+	* @param m : An inteer m demotes th size of a bckpack 
+	* @param A : Given n items with size A[i]
+
+	* return : The maximum size
+	*/
+
+	public int backPack(int m, int[] A){
+
+		if (A == null || A.length == 0) return 0;
+
+		final int M = m;
+		final int N = A.length;
+		int[][] bp = new int[N + 1][M +1];
+
+		for (int i = 0; i < N; i++){
+
+			for (int j = 0; j <=M; j++){
+
+				if (A[j] >j){
+
+					bp[i+1][j]= bp[i][j];	
+				}
+				else{
+
+					bp[i+1][j] = Math.max(bp[i][j], bp[i][j -A[i]] +A[i]);
+				}
+			}
+		}
+		return bp[N][M]
+	}
+}
+
+
