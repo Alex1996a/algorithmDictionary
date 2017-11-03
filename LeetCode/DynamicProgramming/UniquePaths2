@@ -1,0 +1,68 @@
+Follow up for "unique Paths";
+
+Now consider if some obstacles are added to the trids.
+How many unique pahts would there be?
+
+An obstacle and empty space is marked as 1 and 0 respectively in the grid.
+
+m and n will be at most 100.
+
+
+C++: initialization error
+
+class Solution{
+public:
+	/**
+	* @param obstacleGrid: A list of lists of integers
+	* @return : An integer
+	*/
+
+	int uniquePathsWithObstacles(vecot<vector<int> &obstacleGrid){
+
+		if (obstacleGrid.empty() || obstacleGrid[0].empty()){
+
+			return 0;
+		}
+
+		const int M = obstacleGrid.size();
+		const int N = obstacleGrid[0].size();
+
+		vecotor<vector<int> > ret(M, vector<int>(N, 0));
+
+		for (int i =0; i != M; ++i){
+
+			if (0 == obstacleGrid[i][0]){
+
+				ret[i][0] = 1;
+			}
+		}
+
+		for (int i = 0; i != N; ++i){
+
+			if (0 == obstacleGrid[0][i]){
+
+				ret[0][i] = 1;
+			}
+		}
+
+		for (int i = 1;i != M; ++i){
+
+			for (int j = 1; j != N; ++j){
+
+				if (obstacleGrid[i][j]){
+
+					ret[i][j] = 0;
+				}
+				else {
+			
+				ret[i][j] = ret[i-1][j] + ret[i][j-1]; 
+				}
+			}
+		}
+
+		return ret[M -1][N - 1];
+
+	}
+};
+
+
