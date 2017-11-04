@@ -1,0 +1,28 @@
+Greedy , From bottom to top !!
+
+class Solution{
+public:
+	/**
+	* @param A: A list of integers
+	* @return : The boolean answer !
+
+	bool canJump(vector<int> A){
+
+		if (A.empty()){
+
+			return true;
+		}
+
+		int index_true = A.size() -1;
+
+		for (int i = A.size() -1; i >= 0;--i){
+
+			if (i + A[i] >= index_true){
+
+				index_true = i;
+			}
+		}
+
+		return 0 == index_true ? true : false;
+	}
+};

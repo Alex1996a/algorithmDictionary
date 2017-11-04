@@ -1,0 +1,44 @@
+lintcode 116 Jump Game
+
+Given an array of non-negatve integers, you are initially positioned at the first index of the array
+
+Each element in the array represents your maximum jump lenght at that
+position
+
+Determine if you are able to reach the last index..
+
+from top to bottom 
+
+class Solution{
+public:
+	/**
+	* @param A: A list of integers
+	* @return: The boolean answer
+
+	bool canJump(vector<int> A){
+
+		if (A.empty()){
+
+			return true;
+		}
+		
+		vector<bool> jumpto(A.size(), faslse);
+
+		jumpto[0] = true;
+
+		for (int i = 1; i != A.size();++i){
+
+			for (int j = i-1;j >= 0; --j){
+
+				if (jumpto[j] && (j + A[j] >= i)){
+
+					jumpto[i] = true;
+					break;
+				}
+			}
+		}
+		return jumpto[A.size() -1];
+	}
+};
+
+

@@ -1,0 +1,27 @@
+class Solution {
+public:
+	/**
+	* @param A: A list of integers
+	* @return: The boolean answer
+	*/
+
+	bool canJump(vector<int> A){
+
+		if (A.empty()){
+
+			return true;
+		}
+
+		int farthest = A[0];
+		
+		for (int i =1;i != A.size(); ++i){
+
+			if ((i <= farthest) && (i + A[i] > farthest)){
+
+				farthest = i + A[i];
+			}
+		}
+
+		return farthest >= A.size() -1;
+
+
