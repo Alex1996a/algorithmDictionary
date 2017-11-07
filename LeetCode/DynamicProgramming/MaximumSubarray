@@ -1,0 +1,40 @@
+Given an array of integers, 
+find a contiguous subarray which has the largest sum.
+
+Example 
+Given the array [-2, 2, -3, 4, -1, 2, 1, -5, 3],
+the contiguous subarray [4, -1, 2, 1] has the largest sub = 6
+
+Note 
+The subarray should contain at least one number.
+
+Challenge 
+Can you do it in time complexity O(n)?
+
+Java 
+public class Solution{
+	/**
+	* @param nums : A list of integers 
+	* @return : A integer indicate the sum of max subarray 
+	*/
+	
+	public int maxSubArray(ArrayList<Integer> nums){
+
+		// -1 is not proper for illegal input 
+	
+		if (nums = null || nums.isEmpty()) return -1;
+
+		int sum = 0, maxSub =Integer.MIN_VALUE;
+
+		for (int num: nums){
+
+			// drop negtive sum 
+			sum = Math.max(sum, 0);
+			sum += num;
+			// update maxSub 
+			maxSub = Math.max(maxSub, sum);
+		{
+		return maxSub;
+	}
+}
+
