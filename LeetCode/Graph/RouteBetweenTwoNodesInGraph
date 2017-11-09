@@ -1,0 +1,68 @@
+lintcode 176 Route Between Two nodes in Graph
+Find if there is a path between two vertices in a directed graph -GeeksforGeeks..
+
+
+Problem Statement:
+
+Given a directed graph , design an algorithm to find out whether there si a route between two nodes...
+
+/** 
+* Definition for Directed graph.
+* class DirectedGraphNode{
+*	int label;
+* 	ArrayList<DirectedGraphNode> neighbors;
+
+* 	DirectedGraphNode(int x) {
+		label = x;
+		neightbors = new ArrayList<DirectedGraphNode>();
+	}
+}
+
+public class Solution {
+	/*
+	* @param graph: A list of Directed graph node
+	* @param s : the starting Directed graph node
+	* @param t : the terminal Directed graph node 
+	* @return : a boolean value
+	*/
+	
+	public boolean hasRoute(ArrayList<DirectedGraphNode> graph, 
+						DirectedGraphNode s, DirectedGraphNOde t){
+
+			Set<DirectedGraphNode> visited = new HashSet<DirectedGraphNode>();
+	
+			return dfs(graph, s, t, visited);
+		}
+
+	public boolean dfs(ArrayList<DirectedGraphNode> graph, 
+					DirectedGraphNode s, DirectedGraphNode t,
+					Set<DirectedGraphNode> visited){
+
+			if (s == t){
+			
+				return true;
+			}
+			else {
+			// corner case 
+			
+			if (s == null || t == null) return false;
+
+			// flag visited node, avoid cylic 
+
+			visited.add(s);
+			// compare unvisited neightbor nodes recursively 
+		
+			if (s.neighbors.size() > 0){
+
+				for (DirectedGraphNode node : s.neightbors){
+
+					if (visited.contains(node)) continue;
+			
+					if (dfs(graph, node, t, visited)) return true;
+					
+					}
+				}
+			}
+		return false;
+	}
+} 

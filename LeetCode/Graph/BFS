@@ -4,4 +4,65 @@ BFS
 * Definition for Undirected graph.
 * class undirectedGraphNode{
 * 	int label;
-*	ArrayLi
+*	ArrayList<UndirectedGraphNode>
+* 	neighhbor;
+* UndirectedGraphNode(int x){
+*	label = x; 
+* 	neighbors = new ArrayList<UndirectedGraphNote();}
+*}
+*/
+
+public class Solution{
+
+	/**
+	* @param nodes a array of Undirected graph node 
+	* @return a connected set of a Undirected graph
+	*/
+
+	public List<List<Integer>> connectedSet<ArrayList<UndirectedGraphNote> nodes){
+
+		if (nodes == null || nodes.size() == 0) return null;
+
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+
+		//log visited node before push into quenue
+
+		Set<UndirectedGraphNode> visited = new HashSet<UndirectedGraphNode> ();
+
+		for (UndirectedGraphNode node: nodes){
+
+			if (visited. contains(node)) continue;
+		
+			List<Integer> row = bfs(node, visited);
+			result.add(row);
+		}
+
+		return result;
+	}
+	private List<Integer> bfs(UndirectedGraphNode node, 
+					Set<UndirectedGraphNode> visited){
+
+			List<Integer> row = new ArrayList<Integer> ();
+			Queue<UndirectedGraphNode> q = new LinkedList<UndirectedGraphNode>();
+
+			q.offer(node);
+			visited.add(node);
+
+			while (!q.isEmpty()){
+
+				UndirectedGraphNode qNode = q.poll();
+				
+				row.add(qNode.label);
+				for (UndirectedGraphNode neighbor : qNode.neighbors){
+
+					if (visited.contains(neighbor)) continue;
+		
+					q.offer(neighbor);
+					visited.add(neighbor);
+				}
+			}
+			Collections.sort(row);
+			return row;
+		}
+}
+	
