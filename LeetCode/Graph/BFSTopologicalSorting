@@ -1,0 +1,48 @@
+11-10
+lintcode 127 Opologcal Sorting
+
+C++ 
+/** 
+* Deifiniton for Directed graph.
+* struct DirectedGraphNode{
+* 	int label;
+* 	vector<DirectedGraphNode * > neighbors;
+	DirectedGraphNode(int x):label(x) {};
+*}
+*/
+
+class Solution{
+public:
+	/**
+	*@param 
+	*@return 
+
+	vector<DirectedGraphNode*> topSort(vector<DirectedGraphNode*> graph{
+	
+		vecotr<DirectGraphNode*> result;
+		if (graph.size() == 0) return result;
+
+		map<DirectedGraphNode * , int> indegree;
+		//get indegree of all DirectedGraphNode
+
+		indeg(graph, indegree);
+		queue<DirectedGraphNode*> q;
+		
+		//bfs
+		bfs(graph, indegree, q , result);
+		return result;
+	}
+private:
+	/** get indegree of all DirectedGraphNode
+	*
+	*/
+	void indeg(vector<DirectedGraphNode*> &graph, 
+			map<DirectedGraphNode*, int> &indegree){
+
+			for (int i =0 ; i < graph.size(); ++i){
+	
+				for (int j = 0; j < graph[i]->neighbors.size9);j++){
+
+					if (indegree.find(graph[i]->neighbors[j]) == indegree.end()){
+
+			indegree[graph[i]->neighbors[j]] = 1;
