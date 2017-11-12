@@ -1,0 +1,34 @@
+Given a dictionary , find all of the longest words in the dictionary
+
+Challenge
+
+It's easy to solve it in two passes , can you do it in one pass ?
+
+Java version!
+
+class Solution{
+	
+	/**
+	* @param dictionary : an array of strings
+	* @return: an arraylist of strings
+	*/
+
+	ArrayList<String> longestWords(String[] dictionary){
+
+		ArrayList<Strig> result = new ArrayList<String>();
+
+		if (dictionary == null || dictionary.length == 0) return result;
+
+		for (String str : dictionary){
+			// combine empty and shorter length
+
+			if (result.isEmpty() || str.length() > result.get(0).length()){
+
+			result.add(str);
+		}
+	}
+
+	return result;
+	}
+}
+

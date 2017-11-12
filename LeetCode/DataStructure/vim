@@ -1,0 +1,59 @@
+11-12:
+
+Given an array of n integer with duplicate number, and a moving widow(size k ), move the window at each iteration from the start of the array, 
+find the maximum number inside the window at each moving.
+
+At first the window is at the start of the array like this
+return the maximum 7;
+then the window move one step forward.
+
+Java Version 
+
+public class Solution{
+	/**
+	* @param nums: A list of integers .
+	* @return : The maximum number inside the window at each moving.
+	*/
+
+	public ArrayList<Integer> maxSlidingWindow(int[] nums, int k ){
+
+		ArrayList<Integer> winMax = new ArrayList<Integer>();
+
+		if (nums == null || nums.length == 0 || k <=0) 
+
+			return winMax;
+
+		int len = nums.length;
+		
+		Deque<Integer> deque = new ArrayDeque<Integer>();
+	
+		for (int i = 0; i < len; i++){
+
+			// remove the smaller in the rear of queue
+
+			while ((!deque.isEmpty())) && (nums[i] > deque.peekLast())){
+
+				deque.pollLast();
+			}
+
+			// push element in the rear of queue
+
+			deque.offer(nums[i]);
+			// remove invalid max
+
+			if (i + 1 > k && deque.peekFirst() == nums[i -K]){
+
+				deque.pollFirst();
+			}
+			// add max in current window 
+		
+			if (i + 1 >= k){
+
+				winMax.add(deque.peekFirst());
+			}
+		}
+		
+		return winMax;
+	}
+}
+
