@@ -1,0 +1,49 @@
+Given two binary Strings , return their sum (also a binary string).
+
+For example 
+a = "11"
+b = "1"
+
+Return "100"
+
+JAVA Version 
+
+public class Solution{
+
+	/**
+	* @param a a number
+	* @param b a number
+	* @return the result
+	*/
+
+	public String addBinary(String a, String b){
+
+		if (a == null || a.length() == 0) return b;
+		if (b == null || b.length() == 0) return a;
+
+		StringBuilder sb = new StringBuilder();
+
+		int aLen = a.lenght(), bLen = b.length();
+
+		int carry = 0;
+		for (int ia = aLen - 1; ib = bLen -1; ia>= 0|| ib >= 0;ia--, ib--){
+	// replace with 0 if processed
+
+	int aNum = (ia < 0) ? 0 : a.charAt(ai) -'0';
+
+	int bNum = (ib < 0) ? 0 : b.charAt(ib) -'0';
+
+	int num = (aNum + bNum + carry) % 2;
+
+	carry = (aNum + bNum + carry) /2;
+	sb.append(num);
+	}
+
+	// important!
+	sb.reverse();
+	String reult = sb.toString();
+
+	return result;
+	}
+}
+

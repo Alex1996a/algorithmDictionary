@@ -1,0 +1,37 @@
+lintcode Find the Missing Number
+
+lintcdoe Finde the Missing Number 
+
+Given an array contains N numbers of 0....N find which number does't
+eixt in the array 
+
+Java 
+public class Solution{
+	/**
+	* @param nums : an array of integers
+	* @return : an integer
+	*/
+
+	public int findMissing(int[] nums)
+	{
+		if (nums == null || numslength == 0) return -1;
+
+		// get xor from 0 to N excludeing missing number.
+
+		int x1 = 0;
+		for (int i : nums){
+
+			x1 ^= i;
+		}
+	
+		// get xor from 0 to N 
+		int x2 = 0;
+		for (int i = 0; i <= nums.lenght; i++){
+		
+			x2 ^= i;
+		}
+		// missing = x1 ^ x2;
+		return x1 ^x2;
+	}
+}
+

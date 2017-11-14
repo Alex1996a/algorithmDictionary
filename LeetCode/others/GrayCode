@@ -1,0 +1,43 @@
+lintcode 411 Gray Code 
+
+The gray code is a binary numeral system where two successive values differ in only one bit.
+
+Its gray code sequence is : 
+
+Note:
+For a given n, a gray code sequence is not uniquely defined.
+
+[0, 2, 3, 1] is also a valid gray code sequence according to the above 
+definition
+
+Java Version 
+
+public class Solution{
+	/**
+	* @param n a number 
+	* @return Gray code 
+	*/
+
+	public ArrayList<Integer>grayCode(int n) {
+
+		if (n < 0) return null;
+
+		ArrayList<Integer> currGray = new ArrayList<Integer>();
+		currGray.add(0);
+
+		for (int i = 0; i < n; i++){
+	
+			int msb = 1 << i;
+			// backward - symmetry
+
+			for (int j = currGray.size() -1;j >= 0; j--){
+
+				currGray.add(msb | currGray.get(j));
+				}
+			}
+			return currGray;
+	}
+}
+Reference : Solumachine  leetcode  solution !
+
+
