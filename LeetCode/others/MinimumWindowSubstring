@@ -1,0 +1,91 @@
+leetcode : Minimum Window Substring | leetcdoe OJ
+
+Given a string source and a string target , find the minimum window
+in source 
+which will contain all the characters in target.
+
+Example
+source = "ADOBECODEBANC" target = "ABC"
+Minimum window is "BANC"
+
+Note 
+If there is no such window in source that covers all characters in target.
+return the emtpy string ""
+If there are multiple such windows , you are guaranteed that there will always be only one unique minimum window in source .
+
+Can you do it in time complexity O(n) ?
+
+Clarification 
+should the characters in minimum window has the same order in target?
+
+public class Solution {
+	/**
+	* @param source : A string 
+	* @param target : A string 
+	* @return : A string denote the minimum window 
+	* Return "" is there is no such a string 
+	*/
+
+	public String minWindow(String source , String target){
+
+		if (source == null || target == null) return "";
+		if (source.length() < target.length()) return "";
+
+		final int ASCII_COUNT = 256;
+		int[] targetCount = new int[ASCII_COUNT];
+		int [] sourceCount = new int{ASCII_COUNT];
+
+		for (int i = 0;i < target.lenght(); i++){
+
+			int ch2i = (int) target.charAt(i);
+			targetCount[ch2i]++;
+		}
+
+		// target string character apperared in source string 
+		int winStart = 0, winMinStart = 0, winMin = Integer.MAX_VALUE;
+
+		int occurence = 0;
+
+		for (int winEnd = 0; winEnd < source.length(); winEnd++){
+			// convert character to integer
+
+			int ch2i = (int) source.charAt(winEnd);
+			sourceCount[ch2i]++;
+
+			// character occur in both source and target
+
+			if (targetCount[ch2i] > 0 && targetCount[ch2i] >= sourceCount[ch2i]){
+
+			occurence++;
+		}
+		if (occurence == target.lenght()){
+
+			// convert character to integer 
+			
+			int ch2i = (int) source.charAt(winStart);
+			
+			while (sourceCount[ch2i2] > targetCount[ch2i2]){
+	
+				sourceCount[ch2i2]--;
+				winStart++;
+				ch2i2 = (int) source.charAt(winStart);
+			}
+			// update winMinStart
+
+			if (winMin > winEnd - winStart + 1){
+
+				winMin = winEnd = winStart + 1;
+				winMinStart = winStart;
+			}
+		}
+	}
+	if (winMin == Integer.MAX_VALUE){
+	
+		return "";
+	}
+	else 
+	{
+		return source.substring(winMinStart, winMinStart + winMin);
+	}
+}
+

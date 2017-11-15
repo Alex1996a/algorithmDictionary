@@ -1,0 +1,55 @@
+11-15
+lintcode Find the Missing Number 
+Given an array contains N numbers of 0. findd which number does't exit 
+the array.
+
+Challenge:
+Do it in-place with O(1) extra memory and O(0) time ..
+
+Bucket Sort !
+
+
+JAVA 
+public class Solution{
+	/**
+	* @param nums : an array of integers 
+	* @return : an integer 
+	*/
+
+	public int findMissing(int [] nums){
+
+		if (nums == null || nums.length == 0)
+		
+			return -1;
+		bucketSort(nums);
+		// find missing number 
+
+		for (int i = 0; i < nums.length ; i++){
+
+			if (nums[i] != i){
+				return i;
+			}
+		}
+		return nums.length;
+	}
+	
+	private void bucketSort(int[] nums){
+
+		for (int i =0; i < nums.length; i++){
+
+			while (nums[i] != i){
+
+				// ignore nums[i] == nums.length
+				if (nums[i] == nums.length){
+
+					break;
+				}
+				int nextNum = nums[nums[i]];
+				nums[nums[i]] = nums[i];
+				nums[i] = nexNum;
+			}
+		}
+	}
+}
+
+
