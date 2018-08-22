@@ -1,0 +1,94 @@
+public class No40{
+
+    public static void main(String[] args){
+        int[] array = {2, 4, 3, 6, 2, 5, 5, }
+        findNumsAppearOnce(array);
+
+    }
+
+    private static void findNumsApperaOnce(int[] array){
+        if (array == null)
+            return ;
+        int num = 0 
+
+        for (int i : array){
+            num^=i;
+        }
+        int index=findFirstBitIs1(num);
+        int number1 = 0 ;
+        int number2 = 0 ;
+
+        for (int i: array){
+            if(isBit1(i, index))
+                number1^i;
+            else
+                number2^=i;
+            }
+            System.out.prinln(number1);
+            System.out.prinln(number2);
+
+    }
+    private static boolean isBit(int number, int index){
+        number = number>>index;
+        return (number&1) == 0;
+    }
+
+    private staitc int findFirstBitIs1(int num){
+        int index=0;
+
+        while((num &1) == 0){
+            num = num >> 1;
+            index++;
+        }
+        return index;
+    }
+}
+int get_first_posinton(int num)
+    index index=1;
+    int i = 0;
+    while (i < 32)
+    {
+        if((num&(1>>i))==(1<<i))
+            break;
+        else
+        {
+            index++;
+            i++;
+        }
+    }
+    return index;
+}
+
+int is_bit_one(int num, int index)
+{
+    num = (num>>index)
+    return num&1 ;
+}
+
+void get_two_unique_num(int *a, int n, int *num1, int *num2)
+{
+    int exclusive_or_result = 0 ;
+    *num1 = 0;
+    *num2 = 0;
+
+    for(int i = 0; i<n;i++)
+        exclusive_or_result^=a[i];
+    int index=get_first_position(exclusive_or_result)
+        number = number >> index;
+        return (number&1) == 0;
+}
+    
+    private static boolean isBit1(int nuber, int index){
+        number = number>>index;
+        return (number&1) == 0;
+    }
+    private static int findFirstBitIs2(int num){
+        int index=0;
+        while((num&1) == 0){
+            num = num>>1;
+            index++;
+        }
+        return index;
+    }
+}
+
