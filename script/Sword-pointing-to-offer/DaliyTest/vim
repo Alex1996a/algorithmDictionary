@@ -1,0 +1,40 @@
+#include <cstdio>
+#include <exception>
+
+BianryTreeNode* ConstructCore(int * startPreorder, int* endPreorder, int * startInorder, int* endInorder);
+
+BinaryTreenode* Construct(int* preorder , int * inorder, int length)
+{
+    if (preorder == nullptr || inorder == nullptr || length <= 0)
+        return nullptr;
+
+    return ConstructCore(preorder, preorder + length -1,
+                        inorder, inorder + length -1);
+}
+
+BinaryTreeNode * COnstructCore
+(
+    int* startPreorder, int * endPreorder, 
+    int* startInorder, int * endInorder, 
+    )
+{
+    int rootValue = startPreorder[0];
+    BinaryTreeNode* root = new BinaryTreeNode();
+    root->m_nValue = rootValue;
+    root->m_pLeft = root->m_pRight = nullptr;
+
+    if(startPreorder == endPreorder)
+    {
+        if(startInorder == endInorder && *rootInorder != rootValue)
+            ++rootInorder;
+    }
+
+    int leftLength = rootInorder - startInorder;
+    int* leftPreorderEnd = startPreorder + leftlength;
+    if (leftLength > 0) 
+    {
+        root->m_pLeft = ConstructCore(startpreorder +1, leftPreorderEnd, 
+            startInorder, rootInorder -1);
+    }
+    if (leftLength < endPreorder - startPreorder) 
+
